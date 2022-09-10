@@ -40,7 +40,7 @@ public class OrdenTresNumeros{
 
 		switch (cambia){
 
-		case 1: 
+		case 1: // a == b == c
 
 				System.out.println("");
 				System.out.println(a + "(a)");
@@ -80,7 +80,7 @@ public class OrdenTresNumeros{
 				
 				break;
 
-			case 2: //a == b
+		case 2: //a == b
 
 				if (c < a && c < b){
 
@@ -147,8 +147,6 @@ public class OrdenTresNumeros{
 			break;
 
 		case 4: // b == c
-
-			//System.out.println("en case 4: " + cambia);
 			
 			if (a < b && a < c){
 
@@ -183,6 +181,8 @@ public class OrdenTresNumeros{
 		case 5:
 
 			if(a>b && a>c) {
+				
+				//A es el mayor de los tres números (b y c)
 				if(b>c) {
 
 					System.out.println("");
@@ -196,6 +196,7 @@ public class OrdenTresNumeros{
 					System.out.println(c + "(c)");
 					System.out.println(a + "(a)");
 				}	
+				
 			//B es el mayor de los tres números (a y c)
 			} else if(b>a && b>c) {
 				if(a>c) {
@@ -230,10 +231,7 @@ public class OrdenTresNumeros{
 		} //Fin switch
 
 		System.out.println("");
-		//System.out.println("se abrió case " + cambia);
-
 
 	} //Fin main
-
 
 } //Fin class
