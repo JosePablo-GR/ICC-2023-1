@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Dadittos{
+public class JuegoDados{
 
 	public static void main (String [] args) {
 
