@@ -24,7 +24,7 @@ public class SignoZodiacal{
 
 		switch (mes) {
 
-		case 1:
+		case 1: //Enero
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -58,7 +58,7 @@ public class SignoZodiacal{
 			}
 					break;
 
-			case 2:
+		case 2: //Febrero
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -92,7 +92,7 @@ public class SignoZodiacal{
 
 			break;
 
-			case 3:
+		case 3: //Marzo
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -126,7 +126,7 @@ public class SignoZodiacal{
 
 			break;
 
-		case 4:
+		case 4: //Abril
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -159,7 +159,7 @@ public class SignoZodiacal{
 
 			break;
 
-	case 5:
+		case 5: //Mayo
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -192,7 +192,7 @@ public class SignoZodiacal{
 
 			break;
 
-	case 6: //Junio
+		case 6: //Junio
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -225,7 +225,7 @@ public class SignoZodiacal{
 
 			break;
 
-	case 7: //Julio
+		case 7: //Julio
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -326,7 +326,7 @@ public class SignoZodiacal{
 			break;
 
 
-			case 10: //Octubre
+		case 10: //Octubre
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -359,7 +359,7 @@ public class SignoZodiacal{
 
 			break;
 
-			case 11: //Noviembre
+		case 11: //Noviembre
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
@@ -392,7 +392,7 @@ public class SignoZodiacal{
 
 			break;
 
-			case 12: //Diciembre
+		case 12: //Diciembre
 
 			System.out.println("");
 			System.out.println("Ingresa tu día de nacimiento");
