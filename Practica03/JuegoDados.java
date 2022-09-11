@@ -2,6 +2,18 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class JuegoDados{
+	
+	public static void Instrucciones(){
+
+		System.out.println("\ni. Si la suma de los dados es 7 u 11 en el primer tiro, el jugador gana.");
+		System.out.println("ii. Si la suma de los dados es 2, 3 o 12 en el primer tiro (llamado 'craps'), el jugador pierde.");
+		System.out.println("iii. Si la suma es 4, 5, 6, 8, 9 o 10 en el primer tiro, esta suma se convierte en el 'punto' del jugador.");
+		System.out.println("iv. Para ganar, el jugador debe seguir tirando los dados hasta que salga otra vez 'su punto'");
+		System.out.println("    (es decir, que tire ese mismo valor de punto)");
+		System.out.println("v. El jugador pierde si tira un *7* antes de llegar a su punto");
+		System.out.println();
+
+	}//Fin Instrucciones
 
 	public static void main (String [] args) {
 
@@ -15,6 +27,16 @@ public class JuegoDados{
 	boolean centinela = true;
 
 	System.out.println("Este programa simula un juego de dados");
+		
+	System.out.println("¿Quieres leer las instrucciones del juego? Selecciona 1 para 'sí', cualquier otro número para 'no': ");
+
+		int op = lector.nextInt();lector.nextLine();
+
+		if (op == 1){
+
+			Instrucciones();
+
+		} //Fin if instrucciones
 
 	System.out.println("Escribe tu nombre: ");
 
@@ -47,7 +69,6 @@ public class JuegoDados{
 
 				puntos += sumaDados;
 				System.out.println("\nPor ende, se convierten en puntos, tienes que tirar hasta llegar a una suma de " + puntos);
-				System.out.println("**Empieza la cuenta de tus turnos**");
 
 				sumaDados = 0;
 
@@ -89,19 +110,18 @@ public class JuegoDados{
 				System.out.println(nombre + " ha GANADO por llegar a la suma de " + puntos + "!!");
 							
 							
-	} //Fin gans o pierdes
+			} //Fin ganas o pierdes
 						
-} //Fin centinela 
+		} //Fin centinela 
 
 
-				} //Fin if-ELSE sumas y empieza puntos
+	} //Fin if-ELSE sumas y empieza puntos
 
 			} else {
 
 				System.out.println("\nEsa intrucción no existe :(");
 
-			} //Fin if-else tirar/error
-
+		} //Fin if-else tirar/error
 	}//Fin main
 
 }//Fin class
