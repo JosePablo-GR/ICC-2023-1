@@ -63,7 +63,7 @@ public class JuegoDados{
 
 			} else if (sumaDados == 2 || sumaDados == 3 || sumaDados == 12){
 
-					System.out.println("\ncraps: " + nombre + " ha PERDIDO, la casa GANA");
+					System.out.println("\nCRAPS: " + nombre + " ha PERDIDO, la casa GANA");
 
 				} else {
 
