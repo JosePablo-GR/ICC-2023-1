@@ -1,10 +1,6 @@
 import java.util.Scanner;
 
 public class ConversionNumeros {
-
-	public static void conversion(){
-		
-	}
 	
 	public static void main(String [] args) {
 
@@ -43,12 +39,7 @@ public class ConversionNumeros {
 			System.out.println("En base decimal " + ochal + " es "+ deDiez);
 		} else {
 			System.out.println("Ese número no está en base ocho jarocho :p"); //Error
-		}
-		
-
-
-	
 	}
-
-
-}
+		
+	}//Fin main
+}//Fin class
