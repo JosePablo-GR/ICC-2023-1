@@ -4,10 +4,7 @@ public class Collatz{
 
 	public static void main (String [] args){
 
-		int resultado = 0;
-		int numAux = 0;
 		boolean centinela = true;
-		boolean unBuleano = true;
 		Scanner tecladitto = new Scanner(System.in);
 
 		System.out.println("Este programa calcula la sucesión de Collatz");
@@ -18,39 +15,25 @@ public class Collatz{
 		System.out.println();
 		System.out.println(num);
 
-		numAux += num;
+		while(num != 1){
 
-			while(centinela){
+			while(num % 2 == 0 && num != 1){
 
-			int div = numAux/2;
+				int div = num/2;
+				num = div;
+				System.out.println(num);
 
-			System.out.println(div);
+			}//Fin while par
 
-			numAux = div;			
+			while(num % 2 != 0 && num != 1){
 
-			if(numAux % 2 != 0){
+				int multi = 3*num+1;
+				num = multi;
+				System.out.println(num);
 
-			centinela = false;
-			}//Fin rompe centinela
+			}//Fin while impar
 
-		}//Fin while centinela
-
-		centinela = true;
-
-		while(centinela){
-
-			int multi = 3*numAux+1;
-
-			System.out.println(multi);
-
-			numAux = multi;			
-
-			if(numAux % 2 != 0){
-
-			centinela = false;
-			}//Fin rompe centinela
-
-		}//Fin while centinela
+		}//Fin while resultado == 1
 
 	}//Fin main
 
