@@ -4,51 +4,57 @@ public class Rombito{
 
 	public static void main (String [] args){
 
-	Scanner lector = new Scanner(System.in);
+		Scanner lector = new Scanner(System.in);
 
-	System.out.println("Este programa imprime un rombo con 'diametro menor' igual a un número ingresado del teclado");
-	System.out.println("Por favor igresa el número: ");
+		int i = 0;
+
+		System.out.println("Este programa imprime un rombo con 'diametro menor' igual a un número ingresado del teclado");
+		System.out.println("Por favor ingresa el número: ");
 
 		int n = lector.nextInt();
-		
+
 		System.out.println("\nRombo: \n");
 
-		for(int i = 0; i <= n; i++){
+		while(i <= n){
 
-			for(int j = n-i; j > 0; j--){
+		for(int j = n-i; j > 0; j--){
 
-				System.out.print(" ");
-
-			}
-
-			for(int k = 0; k < i; k++){
-
-				System.out.print(" *");
+			System.out.print(" ");
 
 			}
 
-			System.out.println("");
+		for(int k = 0; k < i; k++){
 
-		}//Fin for ida
+			System.out.print(" *");
 
-		for(int i = 0; i <= n; i++){
+		}
 
-			for(int j = 0; j <= i; j++){
+		System.out.println("");
 
-				System.out.print(" ");
-			}
+		i++;
 
-			for(int k = n-i-1; k > 0; k--){
+		}//Fin while ida
 
-				System.out.print(" *");
+		i = 0;
 
-			}
+		while(i <= n){
 
-			System.out.println("");
+		for(int j = 0; j <= i; j++){
 
-		}//Fin for espejo
+			System.out.print(" ");
+		}
 
-		
+		for(int k = n-i-1; k > 0; k--){
+
+			System.out.print(" *");
+
+		}
+
+		System.out.println("");
+
+		i++;
+
+		}//Fin while espejo
 
 	}//Fin main
 
