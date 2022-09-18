@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class NumerosFrance{
+public class NumerosFrances{
 	
 	public static void main (String [] args){
 
@@ -8,7 +8,7 @@ public class NumerosFrance{
 
 		System.out.println("Programa traduce los primeros diez números al frances");
 
-		System.out.println("Por favor ingresa alguno de estos números");
+		System.out.println("Por favor ingresa alguno de estos números: ");
 
 		int num = lector.nextInt();
 
@@ -79,6 +79,5 @@ public class NumerosFrance{
 		}//Fin del switch
 
 	}//Fin main
-
 
 } //Fin class
