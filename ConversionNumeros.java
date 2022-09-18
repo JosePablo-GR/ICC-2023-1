@@ -6,27 +6,27 @@ public class ConversionNumeros {
 
 		Scanner entrada = new Scanner(System.in);
 		int i = 0;
-		int deDiez = 0;
-		boolean exito = true;
+		int baseDiez = 0;
+		boolean sePudo = true;
 
-		System.out.println("Este programa convierte de octal a decimal");
+		System.out.println("Este programa convierte números en base octal a decimal");
 		System.out.println("Ingresa un valor en base octal: ");
-		String ochal = entrada.nextLine();
+		String octal = entrada.nextLine();
 
-		int num = ochal.length()-1;
+		int num = octal.length()-1;
 
 		System.out.println();
 
-		while(i < ochal.length()){
+		while(i < octal.length()){
 
-			char carac = ochal.charAt(i);
+			char carac = octal.charAt(i);
 
 			if(carac == '9' || carac == '8') {
-				exito = false;
+				sePudo = false;
 			}
 
 			int entero = Integer.parseInt(String.valueOf(carac));
-			deDiez += entero*Math.pow(8, num);
+			baseDiez += entero*Math.pow(8, num);
 
 			//Para exponente
 			num--;
@@ -35,11 +35,12 @@ public class ConversionNumeros {
 			i++;
 		}
 
-		if(exito) {
-			System.out.println("En base decimal " + ochal + " es "+ deDiez);
+		if(sePudo) {
+			System.out.println("En base decimal " + octal + " es "+ baseDiez);
 		} else {
-			System.out.println("Ese número no está en base ocho jarocho :p"); //Error
+			System.out.println("Ese número no está en base ocho");
 	}
 		
 	}//Fin main
+	
 }//Fin class
