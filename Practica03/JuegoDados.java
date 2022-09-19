@@ -67,7 +67,7 @@ public class JuegoDados{
 
 				} else {
 
-				puntos += sumaDados;
+				puntos = sumaDados;
 				System.out.println("\nPor ende, se convierten en puntos, tienes que tirar hasta llegar a una suma de " + puntos);
 
 				sumaDados = 0;
@@ -122,6 +122,7 @@ public class JuegoDados{
 				System.out.println("\nEsa intrucción no existe :(");
 
 		} //Fin if-else tirar/error
+		
 	}//Fin main
-
+	
 }//Fin class
