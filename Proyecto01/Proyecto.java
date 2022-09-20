@@ -22,6 +22,20 @@ public class Proyecto01{
 		if(usuario.equals("Miguel") && contraseña.equals("yomero")){
 
 			System.out.println("Hola Miguel!");
+			System.out.println("i. Jugar a las canicas");
+			System.out.println("ii. Calculadora");
+
+			int op = entrada.nextInt();
+
+			if(op == 1){
+
+				System.out.println("CANICAS");
+
+			} else {
+
+				System.out.println("CALCULADORA");
+
+			}//Fin if else Miguel
 
 		} else if(usuario.equals("icc") && contraseña.equals("profesor")){
 
