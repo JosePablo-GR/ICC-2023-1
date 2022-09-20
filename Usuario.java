@@ -16,24 +16,24 @@ public class Usuario{
 
 		if(!(usuario.equals("JosePablo"))){
 
-			while (sePudo){
+		while (sePudo){
 
-			System.out.println("\nUsuario inválido, intente de nuevo: ");
+		System.out.println("\nUsuario inválido, intente de nuevo: ");
 
-			usuario = entrada.next();
+		usuario = entrada.next();
 
 
-			if(usuario.equals("JosePablo")){
+		if(usuario.equals("JosePablo")){
+				
+		sePudo = false;
+		System.out.println("\nBienvenido a tus datos, " + usuario);
 
-				sePudo = false;
-				System.out.println("\nBienvenido a tus datos, " + usuario);
+		}//Fin ya no estás en while
 
-				}//Fin ya no estás en while
+	}//Fin while
 
-			}//Fin while
-
-		}//Fin otra vez
-
-	}//Fin main
+	}//Fin otra vez
+		
+}//Fin main
 
 }//Fin class
