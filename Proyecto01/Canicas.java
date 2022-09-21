@@ -34,7 +34,7 @@ public class Canicas{
 
 		System.out.println("\nLa computadora eligirá cuántas canicas apostará: ");
 
-		apuestaCompu = aleatorio.nextInt(10)+1;
+		apuestaCompu = aleatorio.nextInt(compu)+1;
 		compu -= apuestaCompu;
 
 		System.out.println("Computadora apostó " + apuestaCompu + " canicas");
