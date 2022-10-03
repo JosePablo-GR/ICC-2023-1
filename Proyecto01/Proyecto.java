@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Proyecto01{
+public class Proyecto{
 
 	public static void main(String[] args){
 
