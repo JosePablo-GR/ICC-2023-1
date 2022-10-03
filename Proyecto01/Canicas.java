@@ -3,44 +3,58 @@ import java.util.Random;
 
 public class Canicas{
 
-	public static void main(String[] args){
+	//public void main(String args []){
+	public void juego (){
 
-		Scanner lector;
-		Random aleatorio;
-		char pregunta;
-		int jugador;
-		int compu;
-		int questComp;
-		int apuestaJugador;
-		int apuestaCompu;
-		boolean par;
-		boolean impar;
-		boolean seRepite;
-		boolean error;
+		Scanner lector = new Scanner(System.in);
+		Random aleatorio = new Random();
 
-		aleatorio = new Random();
-		lector = new Scanner(System.in);
+		boolean seRepite = true;
+		boolean otraVez = true;
 
+		System.out.println("Bienvenido, jueguemos canicas, inspirado en el Juego del Calamar");
 		System.out.println("Acabo de repartir 10 canicas para la computadora y 10 para Miguel");
 
-		jugador = 10;
-		compu = 10;
-		seRepite = true;
+		int jugador = 10;
+		int compu = 10;
 
 		while(seRepite){
 
-		/////////Nosotros adivinamos/////////
-		System.out.println("\nMiguel, es tu turno de adivinar\n¿cuántas canicas quieres apostar?");
+			/////////Nosotros adivinamos/////////
+		System.out.println("\nMiguel, es tu turno de adivinar");
+		System.out.println("¿cuántas canicas quieres apostar?");
 		System.out.println("Tienes " + jugador + " canicas");
 
-		apuestaJugador = lector.nextInt();
+		int apuestaJugador = lector.nextInt();
+
+		if(apuestaJugador > jugador){
+
+			System.out.println("\nNo tienes esa cantidad de canicas, elige una cantidad entre 1 y " + jugador);
+
+		} else if(apuestaJugador <= 0){
+		
+		System.out.println("\nNo te hagas, tienes que apostar");	
+	
+		} else {
 
 		jugador -= apuestaJugador;
 
 		System.out.println("\nLa computadora eligirá cuántas canicas apostará...");
 
-		apuestaCompu = aleatorio.nextInt(compu)+1;
-		compu -= apuestaCompu;
+		int apuestaCompu = aleatorio.nextInt(compu)+1;
+
+		if(apuestaCompu >= compu){
+
+			compu = 0;
+
+		} else {
+
+			compu -= apuestaCompu;
+
+		}//Fin compu se pasa
+
+		boolean par;
+		boolean impar;
 
 		if(apuestaCompu % 2 == 0){
 
@@ -57,36 +71,80 @@ public class Canicas{
 		System.out.println("\nMiguel, ¿crees que la cantidad que apostó la computadora es par o impar?");
 		System.out.println("Escribe 'P' para par o 'I' para impar");
 
-		pregunta = lector.next().toUpperCase().charAt(0);
+		char pregunta = lector.next().toUpperCase().charAt(0);
 
-		if(par && pregunta == 'P' || impar && pregunta == 'I'){
+		if((par && pregunta == 'P') || (impar && pregunta == 'I')){
 
 			System.out.println("\nAdivinaste!");
-			jugador += apuestaCompu + apuestaJugador;
+
+			jugador = jugador + apuestaCompu + apuestaJugador; //Jugador se lleva todo
 			
 			System.out.println("Te quedarás con las canicas que apostó la computadora");
 
-		} else {
+			if(jugador >= 20){
+				seRepite = false;
+
+				System.out.println("\nGanaste por llegar a la cantidad de " + jugador + " canicas! :p");
+
+			} else if (compu >= 20){
+				seRepite = false;
+
+				System.out.println("\nPerdiste porque computadora llegó a la cantidad de " + compu + " canicas! :c");
+
+			}
+
+		} else if((par && pregunta == 'I') || (impar && pregunta == 'P')){
 
 			System.out.println("\nErraste");
-			compu += apuestaCompu + apuestaJugador;
+
+			compu = compu + apuestaCompu + apuestaJugador; //Compu se lleva todo
 
 			System.out.println("Ahora la computadora tiene las canicas que apostaste");
 
-		}//Fin cuantás TÚ apuestas
+			if(jugador >= 20){
+				seRepite = false;
 
-		/////////Computadora adivina/////////
-		System.out.println("\nMiguel, es turno de la computadora a adivinar\n¿cuántas canicas quieres apostar?");
-		System.out.println("\nLa computadora adivinará si la cantidad que tienes es par o impar");
+				System.out.println("\nGanaste por llegar a la cantidad de " + jugador + " canicas! :p");
+
+			} else if (compu >= 20){
+				seRepite = false;
+
+				System.out.println("\nPerdiste porque computadora llegó a la cantidad de " + compu + " canicas! :c");
+
+			}
+
+		} else {
+
+			seRepite = false;
+			System.out.println("\nEsa respuesta no coincide con ninguna instrucción");
+			
+		}//Fin tú apuestas 
+
+		par = false;
+		impar = false;
+
+		if(seRepite){
+
+			/////////Computadora adivina/////////
+		System.out.println("\nMiguel, es turno de la computadora a adivinar");
+		System.out.println("La computadora adivinará si la cantidad que apuestes es par o impar");
+		System.out.println("¿cuántas canicas quieres apostar?");
 		System.out.println("Tienes " + jugador + " canicas");
 
 		apuestaJugador = lector.nextInt();
 		jugador -= apuestaJugador;
 
-		//System.out.println("\nLa computadora eligirá cuántas canicas apostará...");
-
 		apuestaCompu = aleatorio.nextInt(compu)+1;
-		compu -= apuestaCompu;
+
+		if(apuestaCompu >= compu){
+
+			compu = 0;
+
+		} else {
+
+			compu -= apuestaCompu;
+
+		}//Fin compu se pasa
 
 		if(apuestaJugador % 2 == 0){
 
@@ -100,39 +158,71 @@ public class Canicas{
 
 		}//Fin parImpar
 
-		questComp = aleatorio.nextInt(2);
+		int questComp = aleatorio.nextInt(2);
 
-		if(par && questComp == 0 || impar && questComp == 1){
+		if(par && questComp == 0){
 
-			System.out.println("Computadora dice que es par, ADIVINÓ");
-			compu += apuestaCompu + apuestaJugador;
+			System.out.println("\nComputadora ADIVINÓ");
+
+			compu = compu + apuestaCompu + apuestaJugador;
 			
-			System.out.println("Ahora tienes " + jugador + " canicas :(");
+			System.out.println("\nAhora tienes " + jugador + " canicas :(");
+
+		 	if (compu >= 20){
+				seRepite = false;
+
+				System.out.println("Y perdiste porque computadora llegó a la cantidad de " + compu + " canicas! :c");
+
+			}
 
 		} else {
 
-			System.out.println("Computadora dice que es impar, FALLÓ");
-			jugador += apuestaCompu + apuestaJugador;
+			System.out.println("\nComputadora FALLÓ");
 
-			System.out.println("Ahora tienes " + jugador + " canicas :)");
+			jugador = jugador + apuestaCompu + apuestaJugador;
+
+			System.out.println("\nAhora tienes " + jugador + " canicas :)");
+
+			if(jugador >= 20){
+				seRepite = false;
+
+				System.out.println("Y ganaste por llegar a la cantidad de " + jugador + " canicas! :p");
+
 
 		}//Fin adivina compu
 
+		par = false;
+		impar = false;
+
+
+		}
+
+		
+		
+		/*
 		////////////NO TOQUES////////////
-		if(jugador == 20){
+		if(compu == 0){
 				seRepite = false;
 
-				System.out.println("Ganaste por llegar a la cantidad de " + jugador + " canicas! :p");
+				System.out.println("\nGanaste por llegar a la cantidad de " + jugador + " canicas! :p");
 
-			}else if(compu == 20){
+			} else if (jugador == 0){
 				seRepite = false;
 
-				System.out.println("Computadora ganó por llegar a la cantidad de " + compu + " canicas! :(");	
+				System.out.println("\nPerdiste porque computadora llegó a la cantidad de " + compu + " canicas! :c");
 
 			}//Fin termina juego
+			*/
 
-		}//Fin while juego
+			//}
+	
+		}//Fin while seRepite juego
 
+
+		}//Fin se rompe ciclo
+
+		}//Error de más canicas
+	
 	}//Fin main
 
 }//Fin class
