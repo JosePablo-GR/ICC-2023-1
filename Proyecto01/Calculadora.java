@@ -62,11 +62,13 @@ public class Calculadora{
 
 		for (long j = 0; bin > 0; bin /= divide, j++) {
 			digito = (int) (bin % divide);
+
 			if (digito != 0 && digito != 1) {
 				System.out.println("falló");
 			}
 			dec += digito * Math.pow(2, j);
 		}
+
 		return dec;
 	}
 	
@@ -124,6 +126,7 @@ public class Calculadora{
 
 		int dec = 0;
 		int pow = 0;
+
 		for (int i = hexa.length() - 1; i >= 0; i--) { 
 			int valor = Hexa(hexa.charAt(i));//llamada al metodo auxiliar
 			long potencia = (long) Math.pow(16, pow)*valor;
@@ -135,7 +138,7 @@ public class Calculadora{
 
 	}
 	
-	//Metodo auxiliar que regresa el valor en decimal de una letra.
+	//Metodo auxiliar que regresa el valor en decimal de una letra
 	public static int Hexa(char letra){
 
 		switch (letra) {
@@ -148,6 +151,7 @@ public class Calculadora{
 			case 'F': return 15;
 
 			default:
+			
 			return Integer.parseInt(String.valueOf(letra));
 		}
 		
@@ -193,12 +197,13 @@ public class Calculadora{
 			System.out.println("10.- Realizar cambio de base de HEXADECIMAL A DECIMAL");
 			System.out.println("11.- Realizar cambio de base de HEXADECIMAL A BINARIO");
 			System.out.println("12.- Realizar cambio de base de HEXADECIMAL A OCTAL");
+			System.out.println("13.- Salir");
 
 			int opcion = entrada.nextInt();
 
-		switch(opcion){
+			switch(opcion){
 
-			case 1: //Decimal a binario
+				case 1: //Decimal a binario
 
 					System.out.println();
 					System.out.println("Ingresa un número en _decimal_ que quieres convertir a *binario*");
@@ -213,7 +218,7 @@ public class Calculadora{
 
 					break;
 
-			case 2: //Decimal a octal
+				case 2: //Decimal a octal
 
 					System.out.println();
 					System.out.println("Ingresa un número en _decimal_ que quieres convertir a *octal*");
@@ -224,7 +229,7 @@ public class Calculadora{
 
 					break;
 
-			case 3: //Decimal a hexadecimal
+				case 3: //Decimal a hexadecimal
 
 					System.out.println();
 					System.out.println("Ingresa un número en _decimal_ que quieres convertir a *hexadecimal*");
@@ -235,18 +240,19 @@ public class Calculadora{
 
 					break;
 
-			case 4: //Binario a decimal
+				case 4: //Binario a decimal
 
 					System.out.println();
 					System.out.println("Ingresa un número en _binario_ que quieres convertir *decimal*");					
 					long numBin1 = entrada.nextLong();
 
 					System.out.println("\nEl binario " + numBin1 + " es en decimal: " + binADec(numBin1));
+									
 					bandera = false;
 
 					break;
 
-			case 5: //Binario a octal
+				case 5: //Binario a octal
 
 					System.out.println();
 					System.out.println("Ingresa un número en _binario_ que quieres convertir a *octal*");
@@ -257,7 +263,7 @@ public class Calculadora{
 
 					break;
 
-			case 6: //Binario a hexadecimal
+				case 6: //Binario a hexadecimal
 
 					System.out.println();
 					System.out.println("Ingresa un número en _binario_ que quieres convertir a *hexadecimal*");
@@ -268,7 +274,7 @@ public class Calculadora{
 
 					break;
 
-			case 7: //Octal a decimal
+				case 7: //Octal a decimal
 
 					System.out.println();
 					System.out.println("\nIngresa un número en _octal_ que quieres convertir a *decimal*");
@@ -304,7 +310,7 @@ public class Calculadora{
 
 					break;
 
-			case 8: //Octal a binario
+				case 8: //Octal a binario
 
 					System.out.println();
 					System.out.println("Ingresa un número en _octal_ que quieres convertir a *binario*");
@@ -340,7 +346,7 @@ public class Calculadora{
 
 					break;
 
-			case 9: //Octal a hexadecimal
+				case 9: //Octal a hexadecimal
 
 					System.out.println();
 					System.out.println("Ingresa un número en _octal_ que quieres convertir a *hexadecimal*");
@@ -376,7 +382,7 @@ public class Calculadora{
 
 					break;
 
-			case 10: //Hexadecimal a decimal
+				case 10: //Hexadecimal a decimal
 
 					System.out.println();
 					System.out.println("Ingresa un número en _hexadecimal_ que quieres convertir a *decimal*");
@@ -388,7 +394,7 @@ public class Calculadora{
 
 					break;
 
-			case 11: //Hexadecimal a binario
+				case 11: //Hexadecimal a binario
 
 					System.out.println();
 					System.out.println("Ingresa un número en _hexadecimal_ que quieres convertir a *binario*");
@@ -400,7 +406,7 @@ public class Calculadora{
 
 					break;
 
-			case 12: //Hexadecimal a octal
+				case 12: //Hexadecimal a octal
 
 					System.out.println();
 					System.out.println("Ingresa un número en _hexadecimal_ que quieres convertir a *octal*");
@@ -412,7 +418,13 @@ public class Calculadora{
 
 					break;
 
-			default: //Si no se cumple ningun keis
+				case 13:
+
+					bandera = false;
+
+					break;
+
+				default: //Si no se cumple ningun keis
 
 					System.out.println();
 					System.out.println("Opcion inválida");
@@ -424,8 +436,12 @@ public class Calculadora{
 		}
 	}
 
+	/*
+
 	 public static void main(String[] args) {                                                                                                      
                 Calculadora cal = new Calculadora();                                                                                                  
                 cal.menu();                                                                                                                           
         } 
+
+        */
 }
