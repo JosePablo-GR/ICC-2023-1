@@ -1,32 +1,33 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Robot{
+class Robot{
 
   public static void main(String... args){
 
   Scanner sc = new Scanner(System.in);
   Random rand = new Random();
   Operaciones miOp = new Operaciones();
-
-  boolean encendido;
+  SistemaRobot robotcito  = new SistemaRobot();
 
   System.out.println("Bienvenido al menú del robot interactivo");
 
   System.out.println("\n¿Deseas preder al robot? [S/N]");
-  char prender = sc.nextLine().toUpperCase().charAt(0);
+  char prender = sc.next().toUpperCase().charAt(0);
 
   if(prender == 'S'){
 
-    encendido = true;
+    robotcito.setEncendido(true);
+    //encendido = true;
 
   } else {
 
-  encendido = false;
+    robotcito.setEncendido(false);
+    //encendido = false;
 
   }//Fin prender
 
-  while(encendido){
+  while(robotcito.getEncendido()){
 
     System.out.println("\n¿Qué deseas hacer?");
     System.out.println("Tendrás que resolver 10 operaciones");
@@ -55,7 +56,8 @@ public class Robot{
 
     } else if(op == 4) {
 
-      encendido = false;
+      robotcito.setEncendido(false);
+      //encendido = false;
       System.out.println("\nBye bye");
 
     } else {
