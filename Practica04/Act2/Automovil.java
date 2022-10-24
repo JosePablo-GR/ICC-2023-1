@@ -3,130 +3,177 @@ import java.util.Random;
 
 public class Automovil{
 
-	Scanner sc = new Scanner(System.in);
-	Random rd = new Random();
-
-	public static int avanzar(int kilometros){
-
-		if(kilometros < 0){
-
-			System.out.println("Cantidad inválida");
-
-		} else {
-
-			
-
-		}//Fin else if
-
-		return kilometros;
-
-	}//Fin avanzar
-
-	public static double cargarGasolina(double dinero){
-
-
-
-		return dinero;
-
-	}//Fin cargarGasolina
-
 	public static void main(String[] args){
 
-	//Atributos
+		Scanner entrada = new Scanner(System.in);
+		Random aleatorios = new Random();
+		DeNuevo carroCero = new DeNuevo();
 
-	boolean encendido;
-	String compania;
-	String marca;
-	double gasTotal;
-	double gasActual = 0;
+		int opcion;
+		char opcion2;
+		double opcion3;
+		String opcion4;
+		boolean tanqueLleno;
 
-	Scanner sc = new Scanner(System.in);
-	Random rd = new Random();
+		System.out.println("Bienvenido a tu carro nuevo");
+		System.out.println("Para prenderlo presiona 0");
 
-	TallerAuto carrito1 = new TallerAuto();
+		opcion = entrada.nextInt();
 
-	System.out.println("Hola, estás en un auto muy bonito");
-	System.out.println("¿Deseas prenderlo? Escribe 'o' para sí");
+		if(opcion == 0){
 
-	String op = sc.next();
-
-	if(op.equals("o")){
-
-		carrito1.setEncendido(true);
-		//encendido = true;
-
-	} else {
-
-		carrito1.setEncendido(false);
-		//encendido = false;
-
-	}
-
-	gasTotal = 50.00;
-
-	while(carrito1.getEncendido()){
-
-		System.out.println("\n¿Qué quieres hacer?");
-		System.out.println("a) Avanzar");
-		System.out.println("b) Cargar gasolina");
-		System.out.println("c) Cargar todo el tanque");
-		System.out.println("d) Carreritas");
-		System.out.println("e. Apagar el coche");
-
-		op = sc.next().toLowerCase();
-
-		switch(op){
-
-		case "a":
-
-			System.out.println("Dime cuantos kilómetros quieres recorrer: ");
-			int km = sc.nextInt();
-
-			avanzar(km);
-
-			break;
-
-		case "b":
-
-			System.out.println("¿Cuánto quieres recargar de gasolina? (Considera que el litro cuesta $19.8)");
-			double dinero = sc.nextDouble();
-
-			double gasTeAlcanza = dinero/19.8; //Litros de gas
-
-			while(dinero != 0){
-
-				gasActual += gasTeAlcanza;
-
-				System.out.println(gasActual);
-
-				dinero--;
-
-			}//Fin while rellenar
-
-			break;
-
-		}//Fin switch
-
-
-		System.out.println("¿Quieres apagar el coche? [S/N]");
-		char opc = sc.next().charAt(0);
-
-		if(opc == 's' || opc == 'S'){
-
-			carrito1.setEncendido(false);
-			//encendido = false;
+			carroCero.setEncendido(true);
+			System.out.println("Genial! Como tu auto es nuevo tienes el tanque lleno (50 litros)");
+			carroCero.setGasolinaActual(50.00); //Gasolina en litros
+			tanqueLleno = true;
 
 		} else {
 
-			carrito1.setEncendido(true);
-			//encendido = true;
+			System.out.println("Ok, se mantedrá apagado");
+			carroCero.setEncendido(false);
+			tanqueLleno = false;
+		}//Fin if else encendido inicial
 
-		}//Fin encendido o no
+		while(carroCero.getEncendido()){
+
+			System.out.println("\nAhora, ¿qué deseas hacer?");
+			System.out.println("1. Avanzar");
+			System.out.println("2. Cargar gasolina");
+			System.out.println("3. Cargar todo el tanque");
+			System.out.println("4. Carreritas");
+
+			opcion = entrada.nextInt();
+
+			if(opcion < 1 || opcion > 4){
+
+				carroCero.setEncendido(false);
+				System.out.println("Opción inválida");
+
+			} else {
+
+				switch(opcion){
+
+				case 1:
+
+					System.out.println("\nDime cuántos kilometros quieres avanzar: ");
+					int km = entrada.nextInt();
+
+						if(km <= 0){
+
+						System.out.println("\nNo puedes avanzar " + km + " kilometros");
+						carroCero.setEncendido(false);
+
+						} else {
+
+							carroCero.avanzar(km);
+							tanqueLleno = false;
+
+						}//Fin if else avanzar
+
+						break;
+
+				case 2:
+				
+					System.out.println("\n¿Cuánto de gasolina quieres? (considera que el litro cuesta $19.8)");
+					System.out.println("a. En pesos");
+					System.out.println("b. En litros");
+					opcion2 = entrada.next().charAt(0);
+
+					if(opcion2 == 'a' || opcion2 == 'A'){
+
+						System.out.println("\nDe acuerdo, ingresa la cantidad de dinero que aumentarás: ");
+						opcion3 = entrada.nextDouble();
+
+						if(opcion3 <= 0.00){
+
+							System.out.println("\nNo se puede recargar esa cantidad");
+
+						} else {
+
+							carroCero.cargarGasolinaDinero(opcion3);
+
+							if(carroCero.getGasolinaActual() >= 50.00){
+
+								tanqueLleno = true;
+
+							} else {
+
+								tanqueLleno = false;
+
+							}//Fin if tanque lleno después de llenarlo x dinero
+
+						}//Fin quieren recargar 0
+
+					} else if(opcion2 == 'b' || opcion2 == 'B'){
+
+						System.out.println("\nOkay, ingresa la cantidad de litros *enteros* que quieras: ");
+						opcion = entrada.nextInt();
+
+						if(opcion == 0){
+
+							System.out.println("\nEntonces para q vienes? ._.");
+
+						} else if (opcion < 0){
+
+							System.out.println("\nNo se puede eso");
+
+						} else {
+
+							carroCero.cargarGasolinaLitros(opcion);
+
+							if(carroCero.getGasolinaActual() >= 50.00){
+
+								tanqueLleno = true;
+
+							} else {
+
+								tanqueLleno = false;
+
+							}//Fin if tanque lleno después de llenarlo x litros
+
+						}//Fin if else cargar de a litro
 
 
-	}
+					} else {
 
-	//System.out.println(encendido);
+						System.out.println("Opción incorrecta");
+						carroCero.setEncendido(false);
+
+					}//Fin qué opción de gas litros o pesos
+
+					break;
+
+				case 3:
+
+					//System.out.println(carroCero.getGasolinaActual());
+
+					if(tanqueLleno){
+
+						System.out.println("\nEl tanque ya está a la máxima capacidad");
+
+					} else {
+
+						carroCero.cargarTodoElTanque();
+						System.out.println("Listo, ya tienes los 50 l");
+					}
+
+					if(carroCero.getGasolinaActual() >= 50.00){
+
+								tanqueLleno = true;
+
+							} else {
+
+								tanqueLleno = false;
+
+							}//Fin if tanque lleno después de llenar el tanque completo
+
+					break;
+
+				}//Fin switch
+
+			}//Fin if opción incorrecta
+
+		}//Fin while encendido
 
 	}//Fin main
 
