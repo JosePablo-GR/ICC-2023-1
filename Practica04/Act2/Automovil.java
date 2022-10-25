@@ -7,7 +7,7 @@ public class Automovil{
 
 		Scanner entrada = new Scanner(System.in);
 		Random aleatorios = new Random();
-		DeNuevo carroCero = new DeNuevo();
+		MetodosAuto carroCero = new MetodosAuto();
 
 		int opcion;
 		char opcion2;
@@ -88,21 +88,15 @@ public class Automovil{
 
 							System.out.println("\nNo se puede recargar esa cantidad");
 
+						} else if (opcion3 < 19.8 && opcion3 > 0.00){
+
+							System.out.println("Debes al menos poner un litro");
+
 						} else {
 
 							carroCero.cargarGasolinaDinero(opcion3);
 
-							if(carroCero.getGasolinaActual() >= 50.00){
-
-								tanqueLleno = true;
-
-							} else {
-
-								tanqueLleno = false;
-
-							}//Fin if tanque lleno después de llenarlo x dinero
-
-						}//Fin quieren recargar 0
+						}//Fin quieren recargar 0 o menos de 1 l
 
 					} else if(opcion2 == 'b' || opcion2 == 'B'){
 
@@ -121,16 +115,6 @@ public class Automovil{
 
 							carroCero.cargarGasolinaLitros(opcion);
 
-							if(carroCero.getGasolinaActual() >= 50.00){
-
-								tanqueLleno = true;
-
-							} else {
-
-								tanqueLleno = false;
-
-							}//Fin if tanque lleno después de llenarlo x litros
-
 						}//Fin if else cargar de a litro
 
 
@@ -142,6 +126,8 @@ public class Automovil{
 					}//Fin qué opción de gas litros o pesos
 
 					break;
+
+					/*
 
 				case 3:
 
@@ -157,19 +143,21 @@ public class Automovil{
 						System.out.println("Listo, ya tienes los 50 l");
 					}
 
-					if(carroCero.getGasolinaActual() >= 50.00){
-
-								tanqueLleno = true;
-
-							} else {
-
-								tanqueLleno = false;
-
-							}//Fin if tanque lleno después de llenar el tanque completo
-
 					break;
 
+					*/
+
 				}//Fin switch
+
+				if(carroCero.getGasolinaActual() >= 50.00){
+
+							tanqueLleno = true;
+
+					} else {
+
+							tanqueLleno = false;
+
+					}//Fin if tanque lleno después de todo
 
 			}//Fin if opción incorrecta
 
