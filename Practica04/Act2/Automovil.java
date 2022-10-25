@@ -90,7 +90,7 @@ public class Automovil{
 
 						} else if (opcion3 < 19.8 && opcion3 > 0.00){
 
-							System.out.println("Debes al menos poner un litro");
+							System.out.println("\nDebes al menos poner un litro");
 
 						} else {
 
@@ -146,6 +146,31 @@ public class Automovil{
 					break;
 
 					*/
+
+				case 4:
+
+					String[] nombre = new String[6];
+
+					nombre[0] = "Meteoro";
+					nombre[1] = "McQueen";
+					nombre[2] = "Bolt";
+					nombre[3] = "Batimovil";
+					nombre[4] = "Cangremovil";
+					nombre[5] = "Bumblebee";
+
+					System.out.println("\nDe acuerdo, empecemos dándole nombre a tu auto: ");
+					opcion4 = entrada.next();
+					String myCar = opcion4;
+
+					System.out.println("\nLa computadora te asignará a alguien...");
+					int i = aleatorios.nextInt(6);
+
+					System.out.println(nombre[i] + " es tu contrincante :O");
+					String rival = nombre[i];
+
+					carroCero.carreritas(myCar, rival);
+
+					break;
 
 				}//Fin switch
 
