@@ -46,144 +46,148 @@ public class Automovil{
 
 			if(opcion < 1 || opcion > 4){
 
-				carroCero.setEncendido(false);
-				System.out.println("Opción inválida");
+				//carroCero.setEncendido(false);
+				System.out.println("\nOpción inválida");
 
 			} else {
 
 				switch(opcion){
 
-				case 1:
+		case 1:
 
-					System.out.println("\nDime cuántos kilometros quieres avanzar: ");
-					int km = entrada.nextInt();
+			System.out.println("\nDime cuántos kilometros quieres avanzar: ");
+			int km = entrada.nextInt();
 
-						if(km <= 0){
+			if(km <= 0){
 
-						System.out.println("\nNo puedes avanzar " + km + " kilometros");
-						carroCero.setEncendido(false);
+			System.out.println("\nNo puedes avanzar " + km + " kilometros");
+			//carroCero.setEncendido(false);
 
-						} else {
+			} else {
 
-							carroCero.avanzar(km);
-							tanqueLleno = false;
+			carroCero.avanzar(km);
+			tanqueLleno = false;
 
-						}//Fin if else avanzar
+			}//Fin if else avanzar
 
-						break;
+			break;
 
-				case 2:
+		case 2:
 				
-					System.out.println("\n¿Cuánto de gasolina quieres? (considera que el litro cuesta $19.8)");
-					System.out.println("a. En pesos");
-					System.out.println("b. En litros");
-					opcion2 = entrada.next().charAt(0);
+			System.out.println("\n¿Cuánto de gasolina quieres? (considera que el litro cuesta $19.8)");
+			System.out.println("a. En pesos");
+			System.out.println("b. En litros");
+			opcion2 = entrada.next().charAt(0);
 
-					if(opcion2 == 'a' || opcion2 == 'A'){
+			if(opcion2 == 'a' || opcion2 == 'A'){
 
-						System.out.println("\nDe acuerdo, ingresa la cantidad de dinero que aumentarás: ");
-						opcion3 = entrada.nextDouble();
+			System.out.println("\nDe acuerdo, ingresa la cantidad de dinero que aumentarás: ");
+			opcion3 = entrada.nextDouble();
 
-						if(opcion3 <= 0){
+				if(opcion3 <= 0){
 
-							System.out.println("\nNo se pueden recargar $" + opcion3);
+				System.out.println("\nNo se pueden recargar $" + opcion3);
 
-						} else if (opcion3 > 0 && opcion3 < 19.8){
+				} else if (opcion3 > 0 && opcion3 < 19.8){
 
-							System.out.println("\nDebes al menos poner un litro ($19.8)");
+				System.out.println("\nDebes al menos poner un litro ($19.8)");
 
-						} else {
+				} else {
 
-							carroCero.cargarGasolinaDinero(opcion3);
+				carroCero.cargarGasolinaDinero(opcion3);
 
-						}//Fin quieren recargar 0 o menos de 1 l
+				}//Fin quieren recargar 0 o menos de 1 l
 
-					} else if(opcion2 == 'b' || opcion2 == 'B'){
+			} else if(opcion2 == 'b' || opcion2 == 'B'){
 
-						System.out.println("\nOkay, recuerda que la capacidad máxima es de 50 l "); 
-						System.out.println("Ingresa la cantidad de litros *enteros* que quieras: ");
-						opcion = entrada.nextInt();
+			System.out.println("\nOkay, recuerda que la capacidad máxima es de 50 l "); 
+			System.out.println("Ingresa la cantidad de litros *enteros* que quieras: ");
+			opcion = entrada.nextInt();
 
-						if(opcion == 0){
+			if(opcion == 0){
 
-							System.out.println("\nEntonces para q vienes? ._.");
+			System.out.println("\nEntonces para q vienes? ._.");
 
-						} else if (opcion < 0){
+			} else if (opcion < 0){
 
-							System.out.println("\nNo se puede eso");
+			System.out.println("\nNo se puede eso");
 
-						} else {
+			} else {
 
-							carroCero.cargarGasolinaLitros(opcion);
+			carroCero.cargarGasolinaLitros(opcion);
 
-						}//Fin if else cargar de a litro
+			}//Fin if else cargar de a litro
 
 
-					} else {
+			} else {
 
-						System.out.println("Opción incorrecta");
-						carroCero.setEncendido(false);
+			System.out.println("\nOpción incorrecta");
+			//carroCero.setEncendido(false);
 
-					}//Fin qué opción de gas litros o pesos
+			}//Fin qué opción de gas litros o pesos
 
-					break;
+			break;
 
-					/*
+		case 3:
 
-				case 3:
+			if(tanqueLleno){
 
-					//System.out.println(carroCero.getGasolinaActual());
+			System.out.println("\nEl tanque ya está a la máxima capacidad");
 
-					if(tanqueLleno){
+			} else {
 
-						System.out.println("\nEl tanque ya está a la máxima capacidad");
+			carroCero.cargarTodoElTanque();
+			System.out.println("Listo, ya tienes los 50 l");
+			}
 
-					} else {
+			break;
 
-						carroCero.cargarTodoElTanque();
-						System.out.println("Listo, ya tienes los 50 l");
-					}
+		case 4:
 
-					break;
+			String[] nombre = new String[6];
 
-					*/
+				nombre[0] = "Meteoro";
+				nombre[1] = "McQueen";
+				nombre[2] = "Bolt";
+				nombre[3] = "Batimovil";
+				nombre[4] = "Cangremovil";
+				nombre[5] = "Bumblebee";
 
-				case 4:
+			if(!tanqueLleno){
 
-					String[] nombre = new String[6];
+			carroCero.revisarGas();
+			//System.out.println("");
 
-					nombre[0] = "Meteoro";
-					nombre[1] = "McQueen";
-					nombre[2] = "Bolt";
-					nombre[3] = "Batimovil";
-					nombre[4] = "Cangremovil";
-					nombre[5] = "Bumblebee";
+			}//Fin if aviso
 
-					System.out.println("\nDe acuerdo, empecemos dándole nombre a tu auto: ");
-					opcion4 = entrada.next();
-					String myCar = opcion4;
+				System.out.println("\nDe acuerdo, empecemos dándole nombre a tu auto: ");
+				opcion4 = entrada.next();
+				String myCar = opcion4;
 
-					System.out.println("\nLa computadora te asignará a alguien...");
-					int i = aleatorios.nextInt(6);
+				System.out.println("\nLa computadora te asignará a alguien...");
+				int i = aleatorios.nextInt(6);
 
-					System.out.println(nombre[i] + " es tu contrincante :O");
-					String rival = nombre[i];
+				System.out.println(nombre[i] + " es tu contrincante :O");
+				String rival = nombre[i];
 
-					carroCero.carreritas(myCar, rival);
+				carroCero.carreritas(myCar, rival);
 
-					break;
+				System.out.println("Por haber participado se te rellenará el tanque completo :D");
+				carroCero.setGasolinaActual(50.00);
 
-				}//Fin switch
+			break;
 
-				if(carroCero.getGasolinaActual() >= 50.00){
+		}//Fin switch
 
-							tanqueLleno = true;
+			if(carroCero.getGasolinaActual() >= 50.00){
+				
+				tanqueLleno = true;
 
-					} else {
+			} else {
 
-							tanqueLleno = false;
+				tanqueLleno = false;
 
-					}//Fin if tanque lleno después de todo
+				}//Fin if tanque lleno después de todo
 
 			}//Fin if opción incorrecta
 
