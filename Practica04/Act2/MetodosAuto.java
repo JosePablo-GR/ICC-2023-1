@@ -97,26 +97,14 @@ public class MetodosAuto{
 
 		}//Fin for auto avanza
 
+		setGasolinaActual(this.gasolinaActual);
+
 	}//Fin método avanzar
 
 	public void cargarGasolinaDinero(double dinero){
 
 		Random aleatorios = new Random();
-		int multiplo = 1;
-		int teSaldraEn = 0;
-
-		for(int cont = 1; cont <= 10; cont++){
-
-			if(this.gasolinaActual % 9.18 == 0){
-
-				System.out.println(multiplo + " es multiplo de 9.18");
-
-			} else {
-
-				System.out.println(multiplo + " no es múltiplo de 9.18");
-
-			}
-
+		
 		int n = aleatorios.nextInt(5)+1;
 		System.out.println();
 
@@ -126,9 +114,44 @@ public class MetodosAuto{
 
 		}//Fin whie imprime mensaje xD
 
-		}//Fin for recargas gasolina
+		int nuevaGasolina = 0; //Litros
+		int teSaldraEn = 0; //$$
 
-		System.out.println("Por favor serán $" + teSaldraEn);
+		if(this.gasolinaActual >= 50){
+
+			System.out.println("El tanque ya está lleno -.-");
+
+		} else { //Mínimo 1l de gasolina
+
+			for(int i = 1; i <= litros; i++){
+
+				if(this.gasolinaActual >= 50){
+
+					i = litros;
+
+					System.out.println("El tanque se ha llenado");
+
+				} else {
+
+					while(dinero >= 0){
+
+						teSaldraEn += 0.36;
+
+						if(teSaldraEn % 19.8 == 0){ //teSaldraEn es múltiplo de 19.8
+
+							nuevaGasolina++;
+
+						}//Fin if es múltiplo
+
+					}//Fin while rellena y cuánto va a ser
+
+					double costoFinal = nuevaGasolina*aCuantoLaGas; 
+
+				}//Fin if tanque está lleno después de llenado
+
+			}//Fin for cargando gass
+
+		}//Fin if se puede rellenar?
 
 	}//Fin método cargarGasolinaDinero
 
@@ -137,14 +160,36 @@ public class MetodosAuto{
 		litros = (int) litros;
 
 		double cuantoSera = litros*aCuantoLaGas; //En $$
+		double resta = Math.floor(capacidadTotal - this.gasolinaActual);
 
-		for(int i = 0; i <= litros; i++){
+		if(litros > resta){
+
+			System.out.println("\nActualmente el tanque tiene " +
+			getGasolinaActual() + " lo máximo que puedes aumentarle son " + resta + " litros");
+
+		} else {
+
+			System.out.println("\n¡CEROOS!");
+			System.out.println();
+
+			for(int i = 0; i <= litros; i++){
 
 			this.gasolinaActual++;
+			setGasolinaActual(this.gasolinaActual);
+
+			double mensaje = this.gasolinaActual;
+			double cuantoVa = mensaje++;	
+
+			System.out.println("Gasolina: " + cuantoVa);
 
 		}//Fin for cargando gasolina
 
-		System.out.println("De tus " + litros + " van a ser $" + cuantoSera);
+		int redondeo = (int) this.gasolinaActual;
+
+		System.out.println("\nDe tus " + litros + " litros van a ser $" + cuantoSera);
+		System.out.println("Y sales con " + redondeo + " litros :)");
+
+		}//Capacidad máxima de gas
 
 	}//Fin método cargarGasolinaLitros
 
@@ -178,12 +223,13 @@ public class MetodosAuto{
 
 		int vueltasC1 = 0; //Contador Carro 1
 		int vueltasC2 = 0; //Contador Carro 2
+		boolean hayGanador = false;
 
 		System.out.println();
 		System.out.println();
-		System.out.println("                                   Inicia la carrera!!!");
+		System.out.println("                                   Inicia la carrera!!!\n");
 
-		for(int vueltas = 1; vueltas <= 10; vueltas++){
+		while(!hayGanador){
 
 			int confusion = aleatorios.nextInt(4)+1;
 			boolean cc1 = false; //Confusión Carro 1
@@ -203,12 +249,6 @@ public class MetodosAuto{
 
 			System.out.println(a1 + " se detiene porque el conductor ha entrado en confusión");
 
-			if(vueltasC1 > 0){
-
-				vueltasC1--;
-
-			}//Fin if  aver si no es 0
-
 			vueltasC2++;
 			System.out.println(a2 + " ha completado " + vueltasC2 + " vueltas");
 
@@ -216,16 +256,10 @@ public class MetodosAuto{
 
 		if(cc2){
 
-			System.out.println(a2 + " se detiene porque el conductor ha entrado en confusión");
-
-			if(vueltasC2 > 0){
-
-				vueltasC2--;
-
-			}//Fin if  aver si no es 0
-
 			vueltasC1++;
 			System.out.println(a1 + " ha completado " + vueltasC1 + " vueltas");
+
+			System.out.println(a2 + " se detiene porque el conductor ha entrado en confusión");
 
 		}//Fin if Carro 2 tiene confusión
 
@@ -240,7 +274,29 @@ public class MetodosAuto{
 
 		System.out.println("*****************************************************************************");
 
+		if(vueltasC1 == 10 || vueltasC2 == 10){
+
+			hayGanador = true;
+
+		}//Fin if hayGandor
+
 		}//while for vueltas
+
+		if(vueltasC1 == 10){
+
+			System.out.println("Y el ganador es...");
+			System.out.println(a1 + "!!!!");
+
+		} else if (vueltasC2 == 10){
+
+			System.out.println("Y el ganador es...");
+			System.out.println(a2);
+
+		} else if(vueltasC1 == 10 && vueltasC2 == 10){
+
+			System.out.println("Órale, fue empate. Los dos llegaron al mismo tiempo.");
+
+		}//Fin quién es ganador
 
 	}//Fin método carreritas
 
@@ -250,3 +306,4 @@ public class MetodosAuto{
 	}//Fin toString
 
 }//Fin class
+
