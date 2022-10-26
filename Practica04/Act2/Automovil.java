@@ -29,7 +29,7 @@ public class Automovil{
 
 		} else {
 
-			System.out.println("Ok, se mantedrá apagado");
+			System.out.println("\nOk, se mantedrá apagado");
 			carroCero.setEncendido(false);
 			tanqueLleno = false;
 		}//Fin if else encendido inicial
@@ -84,13 +84,13 @@ public class Automovil{
 						System.out.println("\nDe acuerdo, ingresa la cantidad de dinero que aumentarás: ");
 						opcion3 = entrada.nextDouble();
 
-						if(opcion3 <= 0.00){
+						if(opcion3 <= 0){
 
-							System.out.println("\nNo se puede recargar esa cantidad");
+							System.out.println("\nNo se pueden recargar $" + opcion3);
 
-						} else if (opcion3 < 19.8 && opcion3 > 0.00){
+						} else if (opcion3 > 0 && opcion3 < 19.8){
 
-							System.out.println("\nDebes al menos poner un litro");
+							System.out.println("\nDebes al menos poner un litro ($19.8)");
 
 						} else {
 
@@ -100,7 +100,8 @@ public class Automovil{
 
 					} else if(opcion2 == 'b' || opcion2 == 'B'){
 
-						System.out.println("\nOkay, ingresa la cantidad de litros *enteros* que quieras: ");
+						System.out.println("\nOkay, recuerda que la capacidad máxima es de 50 l "); 
+						System.out.println("Ingresa la cantidad de litros *enteros* que quieras: ");
 						opcion = entrada.nextInt();
 
 						if(opcion == 0){
