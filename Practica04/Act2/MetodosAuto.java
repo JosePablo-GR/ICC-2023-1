@@ -11,7 +11,7 @@ public class MetodosAuto{
 
 	final double capacidadTotal = 50.00; //Litros
 	final double gastoGas = 0.3; //Se restará
-	final double aCuantoLaGas = 9.18; //$$
+	final double aCuantoLaGas = 19.8; //$$
 
 	public MetodosAuto(){}//Fin constructor por omisión
 
@@ -73,6 +73,20 @@ public class MetodosAuto{
 
 	}//Fin getGasolinaActual
 
+	public void revisarGas(){
+
+		double restaDoble = capacidadTotal - getGasolinaActual();
+		int resta = (int) restaDoble; //Litros que faltan para tanque lleno
+
+		double precio = resta*aCuantoLaGas;
+
+		System.out.println("\nPara partipar en la carrera debes tener el tanque lleno tienes " + getGasolinaActual() + " litros");
+		System.out.println("Como no queremos atrasarte, lo llenamos con " + resta + " litros");
+		System.out.println("y son $" + precio + ", al rato nos lo pasas");
+
+		setGasolinaActual(50.00);
+
+	}//Fin meétodo revisarGas
 
 	public void avanzar(int kilometros){
 
@@ -108,12 +122,6 @@ public class MetodosAuto{
 		int n = aleatorios.nextInt(5)+1;
 		System.out.println();
 
-		for(int x = 1; x <= n; x++){
-
-			System.out.println("Cargando gasolina...");
-
-		}//Fin whie imprime mensaje xD
-
 		int nuevaGasolina = 0; //Litros
 		int teSaldraEn = 0; //$$
 
@@ -123,17 +131,34 @@ public class MetodosAuto{
 
 		} else { //Mínimo 1l de gasolina
 
+			for(int x = 1; x <= n; x++){
+
+			System.out.println("Cargando gasolina...");
+
+			}//Fin whie imprime mensaje xD
+
+		System.out.println();
+
+			double litrosDobles = dinero / aCuantoLaGas; //Cuántos litros se llenarán
+
+			int litros = (int) Math.ceil(litrosDobles);
+
+			//System.out.println("Litros vale: " + litros);
+			//System.out.println("LitrosDobles vale: " + litrosDobles);
+
 			for(int i = 1; i <= litros; i++){
+
+				System.out.println("Etraste al for");
 
 				if(this.gasolinaActual >= 50){
 
-					i = litros;
+					//i = litros;
 
 					System.out.println("El tanque se ha llenado");
 
 				} else {
 
-					while(dinero >= 0){
+					while(dinero > 0){
 
 						teSaldraEn += 0.36;
 
@@ -144,14 +169,18 @@ public class MetodosAuto{
 						}//Fin if es múltiplo
 
 					}//Fin while rellena y cuánto va a ser
-
-					double costoFinal = nuevaGasolina*aCuantoLaGas; 
-
+					
 				}//Fin if tanque está lleno después de llenado
 
 			}//Fin for cargando gass
 
 		}//Fin if se puede rellenar?
+
+		double costoFinal = nuevaGasolina*aCuantoLaGas;
+		setGasolinaActual(nuevaGasolina + this.gasolinaActual); 
+
+		System.out.println("Se llenaron " + nuevaGasolina + " litros y son $" + costoFinal);
+		System.out.println("Gasolina actual: " + getGasolinaActual());
 
 	}//Fin método cargarGasolinaDinero
 
@@ -160,9 +189,15 @@ public class MetodosAuto{
 		litros = (int) litros;
 
 		double cuantoSera = litros*aCuantoLaGas; //En $$
-		double resta = Math.floor(capacidadTotal - this.gasolinaActual);
+		double resta = Math.ceil(capacidadTotal - this.gasolinaActual);
 
-		if(litros > resta){
+		if(this.gasolinaActual >= 50){
+
+			System.out.println("\nEl tanque ya está lleno -.-");
+
+		}else{
+
+			if(litros > resta){
 
 			System.out.println("\nActualmente el tanque tiene " +
 			getGasolinaActual() + " lo máximo que puedes aumentarle son " + resta + " litros");
@@ -174,42 +209,67 @@ public class MetodosAuto{
 
 			for(int i = 0; i <= litros; i++){
 
-			this.gasolinaActual++;
 			setGasolinaActual(this.gasolinaActual);
 
-			double mensaje = this.gasolinaActual;
-			double cuantoVa = mensaje++;	
+			//double mensaje = this.gasolinaActual;
+			//double cuantoVa = mensaje++;	
 
-			System.out.println("Gasolina: " + cuantoVa);
+			System.out.println("Gasolina: " + this.gasolinaActual);
+
+			this.gasolinaActual++;
 
 		}//Fin for cargando gasolina
 
-		int redondeo = (int) this.gasolinaActual;
+		if(this.gasolinaActual >= 50.0){
+
+			setGasolinaActual(50.00);
+
+		}//Fin if diferentes mensajes
 
 		System.out.println("\nDe tus " + litros + " litros van a ser $" + cuantoSera);
-		System.out.println("Y sales con " + redondeo + " litros :)");
+		System.out.println("Y sales con " + this.gasolinaActual + " litros :)");
 
 		}//Capacidad máxima de gas
+
+		}//Fin if a ver si tanque está lleno
 
 	}//Fin método cargarGasolinaLitros
 
 	public void cargarTodoElTanque(){
 
-		int resta = 0;
+		setGasolinaActual(this.gasolinaActual);
+
+		double restaDoble = capacidadTotal - getGasolinaActual();
+		int resta = (int) restaDoble;
+
+		//System.out.println("getGasolinaActual: " + getGasolinaActual());
+		//System.out.println("this.gasolinaActual: " + this.gasolinaActual);
+		//System.out.println("gasolinaActual: " + getGasolinaActual());
 
 		if(this.gasolinaActual < 1){
 
-			System.out.println("Te faltaban unas gotas para llenar el tanque");
+			System.out.println("\nTe faltaban unas gotas para llenar el tanque");
 			System.out.println("Ntp, nosotros lo invitamos");
 
 		} else {
 
-			for(int i = 0; i <= capacidadTotal; i++){
+			System.out.println("\n¡CEROOS!");
 
-				
+			for(int i = 0; i <= resta; i++){
 
+			setGasolinaActual(this.gasolinaActual);
 
-			}//Fin for rellena gasolina
+			if(this.gasolinaActual >= 50.0){
+
+			setGasolinaActual(50.00);
+
+		}//Fin if diferentes mensajes
+
+			System.out.println("Gasolina: " + this.gasolinaActual);
+
+			this.gasolinaActual++;
+
+		}//Fin for rellena gasolina
 
 			setGasolinaActual(50.00);
 
@@ -294,7 +354,7 @@ public class MetodosAuto{
 
 		} else if(vueltasC1 == 10 && vueltasC2 == 10){
 
-			System.out.println("Órale, fue empate. Los dos llegaron al mismo tiempo.");
+			System.out.println("Órale, fue empate. Los dos llegamos al mismo tiempo.");
 
 		}//Fin quién es ganador
 
@@ -306,4 +366,3 @@ public class MetodosAuto{
 	}//Fin toString
 
 }//Fin class
-
