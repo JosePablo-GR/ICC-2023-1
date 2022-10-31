@@ -27,19 +27,27 @@ class Claves{
 
 			int positionArregloN = rd.nextInt(arreglito.length);
 
-			if(arreglitoDesordenado [j] == null){
+			/*
+
+			if(arreglitoDesordenado [j] != null){
 
 				arreglitoDesordenado [j] = arreglito [positionArregloN]; 
 
 			}//Fin if el espacio está desocupado 
 
+			*/					 
+
 		}//Fin for desacomoda cadena
+
+		//System.out.println(arreglito);
 
 		System.out.println(arreglitoDesordenado);
 
 	}//Fin método revuelve
 
 	public static void main(String[] args){
+
+	for(int a = 1; a <= 10; a++){
 
 		Random rd = new Random();
 
@@ -54,9 +62,7 @@ class Claves{
 		char charEscogido = chars.charAt(characters);
 
 		cadFinal += charEscogido;
-
-		//System.out.println(charEscogido);
-
+		
 		//////////Escoge números//////////
 		int n;
 		int unoDosNum = rd.nextInt(2);
@@ -70,6 +76,8 @@ class Claves{
 			n = 2;
 
 		}//Fin if uno o dos números
+
+		int seguridadNumeros = n;
 
 		for(int i = 1; i <= n; i++){
 
@@ -97,6 +105,8 @@ class Claves{
 
 		}//Fin if una o dos mayúsculas
 
+		int seguridadLetras = m;
+
 		for(int j = 1; j <= m; j++){
 
 			posicion = rd.nextInt(26);
@@ -119,9 +129,28 @@ class Claves{
 
 		}//Fin for agarra letras minúsculas
 
-		System.out.println(cadFinal + ", tiene longuitud " + cadFinal.length());
+		String mensajeSeguridad;
 
-		revuelve(cadFinal);
+		if(seguridadNumeros == 2 && seguridadLetras == 2){
+
+			mensajeSeguridad = " Seguridad alta";
+
+		} else if(seguridadNumeros == 1 && seguridadLetras == 1){
+
+			mensajeSeguridad = " Seguridad débil";
+
+		} else {
+
+			mensajeSeguridad = " Seguridad media";
+
+		}//Fin if seguridad
+
+		//revuelve(cadFinal);
+
+		System.out.println();
+		System.out.println(cadFinal + mensajeSeguridad);
+
+	}//Fin for genera 10 contraseñas	
 
 	}//Fin main
 
