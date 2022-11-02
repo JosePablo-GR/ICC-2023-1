@@ -3,7 +3,21 @@ import java.util.Random;
 
 class Claves{
 
-	public static void revuelve(String cadena){
+	public static String imprimeArreglito(char[] a, String m){
+		
+		String cad = "";
+
+		for(char c : a){
+
+			cad += c;
+
+		}//Fin for
+
+		return cad + m;
+
+	}//Fin toString modificado
+
+	public static char[] revuelve(String cadena){
 
 		Random rd = new Random();
 
@@ -21,33 +35,27 @@ class Claves{
 
 		}//Fin for rellena arreglo
 
-		char[] arreglitoDesordenado = new char [cadena.length()];
-
 		for(int j = 0; j < arreglito.length; j++){
 
 			int positionArregloN = rd.nextInt(arreglito.length);
 
-			/*
+			char actual = arreglito[j];
 
-			if(arreglitoDesordenado [j] != null){
+			char otro = arreglito[positionArregloN];
 
-				arreglitoDesordenado [j] = arreglito [positionArregloN]; 
+			arreglito[j] = otro;
 
-			}//Fin if el espacio está desocupado 
-
-			*/					 
+			arreglito[positionArregloN] = actual;
 
 		}//Fin for desacomoda cadena
 
-		//System.out.println(arreglito);
-
-		System.out.println(arreglitoDesordenado);
+		return arreglito;
 
 	}//Fin método revuelve
 
 	public static void main(String[] args){
 
-	for(int a = 1; a <= 10; a++){
+	for(int a = 1; a <= 10; a++) {
 
 		Random rd = new Random();
 
@@ -62,7 +70,9 @@ class Claves{
 		char charEscogido = chars.charAt(characters);
 
 		cadFinal += charEscogido;
-		
+
+		//System.out.println(charEscogido);
+
 		//////////Escoge números//////////
 		int n;
 		int unoDosNum = rd.nextInt(2);
@@ -145,12 +155,11 @@ class Claves{
 
 		}//Fin if seguridad
 
-		//revuelve(cadFinal);
+		char[] revuelto = revuelve(cadFinal);
 
-		System.out.println();
-		System.out.println(cadFinal + mensajeSeguridad);
+		System.out.println(imprimeArreglito(revuelto, mensajeSeguridad));
 
-	}//Fin for genera 10 contraseñas	
+		}//Fin for 10 veces
 
 	}//Fin main
 
