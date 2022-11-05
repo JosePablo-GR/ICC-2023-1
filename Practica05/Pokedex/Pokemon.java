@@ -34,11 +34,11 @@ public class Pokemon{
 
 	}//Fin constructor con parámetros
 
-	public static void pokemonEncontrado(){
+	public String pokemonEncontrado(){
 
 		Random aleatorios = new Random();
 
-		String tipoPokemonComparar;
+		//String tipoPokemonComparar;
 		String whichPokeIsIt = "";
 		int tipoPoke = aleatorios.nextInt(10)+1;
 		int whichPoke = aleatorios.nextInt(5)+1;
@@ -47,7 +47,7 @@ public class Pokemon{
 
 			case 1:
 
-			tipoPokemonComparar = "Acero";
+				tipo = "Acero";
 
 			if(whichPoke == 1){
 
@@ -75,7 +75,7 @@ public class Pokemon{
 
 		case 2: 
 
-			tipoPokemonComparar = "Dragón";
+			tipo = "Dragón";
 
 			if(whichPoke == 1){
 
@@ -103,7 +103,7 @@ public class Pokemon{
 
 		case 3:
 
-			tipoPokemonComparar = "Eléctrico";
+			tipo = "Eléctrico";
 
 			if(whichPoke == 1){
 
@@ -131,7 +131,7 @@ public class Pokemon{
 
 		case 4:
 
-			tipoPokemonComparar = "Fantasma";
+			tipo = "Fantasma";
 
 			if(whichPoke == 1){
 
@@ -159,7 +159,7 @@ public class Pokemon{
 
 		case 5:
 
-			tipoPokemonComparar = "Lucha";
+			tipo = "Lucha";
 
 			if(whichPoke == 1){
 
@@ -187,7 +187,7 @@ public class Pokemon{
 
 		case 6:
 
-			tipoPokemonComparar = "Normal";
+			tipo = "Normal";
 
 			if(whichPoke == 1){
 
@@ -215,7 +215,7 @@ public class Pokemon{
 
 		case 7:
 
-			tipoPokemonComparar = "Psíquico";
+			tipo = "Psíquico";
 
 			if(whichPoke == 1){
 
@@ -243,7 +243,7 @@ public class Pokemon{
 
 		case 8: 
 
-			tipoPokemonComparar = "Roca";
+			tipo = "Roca";
 
 			if(whichPoke == 1){
 
@@ -271,7 +271,7 @@ public class Pokemon{
 
 		case 9:
 
-			tipoPokemonComparar = "Tierra";
+			tipo = "Tierra";
 
 			if(whichPoke == 1){
 
@@ -299,7 +299,7 @@ public class Pokemon{
 
 		case 10:
 
-			tipoPokemonComparar = "Volador";
+			tipo = "Volador";
 
 			if(whichPoke == 1){
 
@@ -327,7 +327,8 @@ public class Pokemon{
 
 		}//Fin switch qué tipo de pokemón
 
-		System.out.println("Vaya, es " + whichPokeIsIt);
+		return whichPokeIsIt;
+		//System.out.println("Vaya, es " + whichPokeIsIt);
 
 	}//Fin método pokemonEncontrado
 
@@ -403,9 +404,15 @@ public class Pokemon{
 
 		return bolsitaFullH;
 
-	}//Fin getBolsitaFullH
+	}//Fin getBolsitaFullH+
 
-	public void comerOran(){
+	public void fuljil(){
+
+		setHP(100);
+
+	}//Fin método
+
+	public void comerOran(int hp){
 
 		if(this.hp == 70){
 
@@ -426,21 +433,29 @@ public class Pokemon{
 
 	}//Fin método comer oran
 
-	public void fuljil(){
+	public void checaHP(int hp){
 
-		setHP(100);
+		if(this.hp <= 50){
 
-		if(this.hp >= 70){
+			System.out.println("¡Chispas! " + nombre + " se ve que necesita un poco de regeneración");
 
-			System.out.println("Convenía mejor la Oran, pero bueno");
+		} else if(this.hp <= 30){
 
-		} else {
+			System.out.println("Es fuertemente recomendable regenerar al pokemón");
 
-			System.out.println("Ya estamos, listos para para seguir:)");
+		} else if(this.hp > 5 && this.hp < 10){
 
-		}//Fin if no puedes +30
+			System.out.println("Abre tu bolsita!! :(");
 
-	}//Fin método fuljil
+		} else if (this.hp == 0 || this.hp < 0){
+
+			System.out.println("RIP " + nombre);
+			System.out.println("(x_x)");
+			System.exit(0);
+
+		}//Fin if hp < 50
+
+	}//Fin método checaHP
 
 	public void probabilidadEnfermarse(String pokemon){
 
@@ -473,21 +488,22 @@ public class Pokemon{
 
 		if(malito == 1 || malito == 2){ // 20% probabilidad envenedado
 
-			System.out.println(pokemon + " se envenenó");
 			this.hp -= 15;
+			System.out.println(pokemon + " se envenenó. Tu HP es de " + getHP());
 			aux2 = 0;
 
 		} else if (malito == 3 || malito == 4 || malito == 5){
 
-			System.out.println(pokemon + " se quemó");
-			aux2 = 0;
 			this.hp -= 20;
+			System.out.println(pokemon + " se quemó. Tu HP es de " + getHP());
+			aux2 = 0;
+			
 
 		} else if (malito == 6){
 
-			System.out.println(pokemon + " se congeló");
-			aux2 = 0;
 			this.hp -= 10;
+			System.out.println(pokemon + " se congeló. Tu HP es de " + getHP());
+			aux2 = 0;
 
 		} else {
 
@@ -498,8 +514,8 @@ public class Pokemon{
 
 		if(aux == true && aux2 == 5){
 
-			System.out.println(pokemon + " se congeló");
 			this.hp -= 10;
+			System.out.println(pokemon + " se congeló. Tu HP es de " + getHP());
 
 		} else if(aux == false && aux2 == 5){
 
@@ -509,18 +525,168 @@ public class Pokemon{
 
 	}//Fin método probabilidadEnfermarse
 
-	public void comparaPokemones(String pokemonComparacion){
+	public void comparaPokemones(String tipoOtroPoke) {
 
 		System.out.println("\n¡Mira! Nos hemos encontrado a otro pokemón");
 		System.out.println("Preguntémosle su nombre...");
 
-		if(!(whichPokeIsIt.equals(pokemonComparacion))){
+		//System.out.println("Vaya, es " + pokemonEncontrado() + "!");
 
-			pokemonEncontrado();
+		String foundPoke = pokemonEncontrado();
 
-		}//Fin if somos el mismo
+		if(this.getTipo().equals(tipoOtroPoke)) {
 
-		if(tipoPokemonComparar.equals(this.tipo)){}//Fin if comparar bn
+			System.out.println("Son del mismo tipo :)");
+
+		}else if(this.getTipo().equals("Acero")){
+
+			if(this.tipo.equals("Hielo") || this.tipo.equals("Roca")){
+
+				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+
+			} else if(this.tipo.equals("Tierra") || this.tipo.equals("Lucha")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Gusto en conocerte.");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Dragón")){
+
+			if(this.tipo.equals("Hielo")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Gusto en conocerte, pareces lagartija.");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Eléctrico")){
+
+			if(this.tipo.equals("Volador")){
+
+				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+
+			} else if(this.tipo.equals("Tierra")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Gusto en conocerte.");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Fantasma")){
+
+			if(this.tipo.equals("Psíquico")){
+
+				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+
+			} else {
+
+				System.out.println("Mucho gusto en conocerte.");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Lucha")){
+
+			if(this.tipo.equals("Hielo") || this.tipo.equals("Normal") || this.tipo.equals("Roca") || this.tipo.equals("Acero")){
+
+				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+
+			} else if(this.tipo.equals("Volador") || this.tipo.equals("Psíquico")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Gusto en conocerte. ¿Usas máscara de luchador?");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Normal")){
+
+			if(this.tipo.equals("Lucha")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Mucho gusto en conocerte.");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Psíquico")){
+
+			if(this.tipo.equals("Lucha")){
+
+				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+
+			} else if(this.tipo.equals("Fantasma")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Gusto en conocerte. ¿Estudiaste Psicología?");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Roca")){
+
+			if(this.tipo.equals("Hielo") || this.tipo.equals("Volador")){
+
+				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+
+			} else if(this.tipo.equals("Tierra") || this.tipo.equals("Lucha") || this.tipo.equals("Acero")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Gusto en conocerte. Tas pesado");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Tierra")){
+
+			if(this.tipo.equals("Eléctrico") || this.tipo.equals("Roca") || this.tipo.equals("Acero")){
+
+				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+
+			} else if(this.tipo.equals("Hielo")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Gusto en conocerte.");
+
+			}//Fin if quién gana
+
+		}else if(this.getTipo().equals("Volador")){
+
+			if(this.tipo.equals("Lucha")){
+
+				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+
+			} else if(this.tipo.equals("Hielo") || this.tipo.equals("Eléctrico") || this.tipo.equals("Roca")){
+
+				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+
+			} else {
+
+				System.out.println("Gusto en conocerte. A ver, vuela");
+
+			}//Fin if quién gana	
+
+		}//Fin if comparar bn
 
 	}//Fin método comparaPokemones
 
@@ -529,16 +695,16 @@ public class Pokemon{
 		Random aleatorios = new Random();
 
 		int cuantoDolio = aleatorios.nextInt(11)+10;
-
-		System.out.println("\n¡Auch! Hemos caído en un hoyo");
-
 		this.hp -= cuantoDolio;
+
+		System.out.println("\n¡Auch! Hemos caído en un hoyo. Tu HP es de " + getHP());
 
 	}//Fin método caerse
 
 	public String toString(){
 
 		return "Nombre: " + nombre + "\nTipo: " + tipo;
+
 	}//Fin toString
 
 }//Fin class
