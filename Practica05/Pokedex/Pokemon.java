@@ -19,7 +19,13 @@ public class Pokemon{
 		this.nombre = nombre;
 		this.tipo = tipo;
 
-	}//Fin constructor
+	}//Fin constructor nombre y tipo
+
+	public Pokemon(String tipo){
+
+		this.tipo = tipo;
+
+	}//Fin constructor tipo
 
 	public Pokemon(String nombre, String tipo, String estadoDeSalud, int hp, boolean bolsitaOran, boolean bolsitaFullH){
 
@@ -34,6 +40,7 @@ public class Pokemon{
 
 	}//Fin constructor con parámetros
 
+	/*
 	public String pokemonEncontrado(){
 
 		Random aleatorios = new Random();
@@ -331,6 +338,7 @@ public class Pokemon{
 		//System.out.println("Vaya, es " + whichPokeIsIt);
 
 	}//Fin método pokemonEncontrado
+	*/
 
 	//Setters
 	public void setNombre(String nombre){
@@ -433,13 +441,21 @@ public class Pokemon{
 
 	}//Fin método comer oran
 
-	public void checaHP(int hp){
+	public void checaHP(){
 
-		if(this.hp <= 50){
+		if(this.hp == 100){
+
+			//System.out.println("HP al 100 :)");
+
+		} else if(this.hp < 100 && this.hp >= 61) {
+
+			System.out.println("Pokemón con daño pero no grave");
+
+		} else if(this.hp <= 60 && this.hp >= 40){
 
 			System.out.println("¡Chispas! " + nombre + " se ve que necesita un poco de regeneración");
 
-		} else if(this.hp <= 30){
+		} else if(this.hp < 40 && this.hp >= 10){
 
 			System.out.println("Es fuertemente recomendable regenerar al pokemón");
 
@@ -447,13 +463,14 @@ public class Pokemon{
 
 			System.out.println("Abre tu bolsita!! :(");
 
-		} else if (this.hp == 0 || this.hp < 0){
+		} else {
 
-			System.out.println("RIP " + nombre);
+			//setHP(0);
+			System.out.println("\nRIP " + nombre);
 			System.out.println("(x_x)");
-			System.exit(0);
+			System.exit(1);
 
-		}//Fin if hp < 50
+		}//Fin if 
 
 	}//Fin método checaHP
 
@@ -525,28 +542,28 @@ public class Pokemon{
 
 	}//Fin método probabilidadEnfermarse
 
-	public void comparaPokemones(String tipoOtroPoke) {
+	public void comparaPokemones(Pokemon tipoPoke1, Pokemon tipoPoke2) {
 
-		System.out.println("\n¡Mira! Nos hemos encontrado a otro pokemón");
-		System.out.println("Preguntémosle su nombre...");
+		//System.out.println("\n¡Mira! Nos hemos encontrado a otro pokemón");
+		//System.out.println("Preguntémosle su nombre... \n" + "Es " + pokemonEncontrado());
 
 		//System.out.println("Vaya, es " + pokemonEncontrado() + "!");
 
-		String foundPoke = pokemonEncontrado();
+		//String foundPoke = pokemonEncontrado();
 
-		if(this.getTipo().equals(tipoOtroPoke)) {
+		if(tipoPoke1.getTipo().equals(tipoPoke2.getTipo())) {
 
 			System.out.println("Son del mismo tipo :)");
 
-		}else if(this.getTipo().equals("Acero")){
+		}else if(tipoPoke1.getTipo().equals("Acero")){
 
-			if(this.tipo.equals("Hielo") || this.tipo.equals("Roca")){
+			if(tipoPoke2.getTipo().equals("Hielo") || tipoPoke2.getTipo().equals("Roca") || tipoPoke2.getTipo().equals("Hada")){
 
-				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
 
-			} else if(this.tipo.equals("Tierra") || this.tipo.equals("Lucha")){
+			} else if(tipoPoke2.getTipo().equals("Tierra") || tipoPoke2.getTipo().equals("Lucha") || tipoPoke2.getTipo().equals("Fuego")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
 
 			} else {
 
@@ -554,11 +571,11 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Dragón")){
+		}else if(tipoPoke1.getTipo().equals("Dragón")){
 
-			if(this.tipo.equals("Hielo")){
+			if(tipoPoke2.getTipo().equals("Hielo") || tipoPoke2.getTipo().equals("Hada")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
 
 			} else {
 
@@ -566,15 +583,15 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Eléctrico")){
+		}else if(tipoPoke1.getTipo().equals("Eléctrico")){
 
-			if(this.tipo.equals("Volador")){
+			if(tipoPoke2.getTipo().equals("Volador") || tipoPoke2.getTipo().equals("Agua")){
 
-				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
 
-			} else if(this.tipo.equals("Tierra")){
+			} else if(tipoPoke2.getTipo().equals("Tierra")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
 
 			} else {
 
@@ -582,11 +599,11 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Fantasma")){
+		}else if(tipoPoke1.getTipo().equals("Fantasma")){
 
-			if(this.tipo.equals("Psíquico")){
+			if(tipoPoke2.getTipo().equals("Psíquico")){
 
-				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
 
 			} else {
 
@@ -594,15 +611,15 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Lucha")){
+		}else if(tipoPoke1.getTipo().equals("Lucha")){
 
-			if(this.tipo.equals("Hielo") || this.tipo.equals("Normal") || this.tipo.equals("Roca") || this.tipo.equals("Acero")){
+			if(tipoPoke2.getTipo().equals("Hielo") || tipoPoke2.getTipo().equals("Normal") || tipoPoke2.getTipo().equals("Roca") || tipoPoke2.getTipo().equals("Acero") || tipoPoke2.getTipo().equals("Siniestro")){
 
-				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
 
-			} else if(this.tipo.equals("Volador") || this.tipo.equals("Psíquico")){
+			} else if(tipoPoke2.getTipo().equals("Volador") || tipoPoke2.getTipo().equals("Psíquico") || tipoPoke2.getTipo().equals("Hada")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
 
 			} else {
 
@@ -610,11 +627,11 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Normal")){
+		}else if(tipoPoke1.getTipo().equals("Normal")){
 
-			if(this.tipo.equals("Lucha")){
+			if(tipoPoke2.getTipo().equals("Lucha")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1);
 
 			} else {
 
@@ -622,15 +639,15 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Psíquico")){
+		}else if(tipoPoke1.getTipo().equals("Psíquico")){
 
-			if(this.tipo.equals("Lucha")){
+			if(tipoPoke2.getTipo().equals("Lucha") || tipoPoke2.getTipo().equals("Veneno")){
 
-				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
 
-			} else if(this.tipo.equals("Fantasma")){
+			} else if(tipoPoke2.getTipo().equals("Fantasma") || tipoPoke2.getTipo().equals("Bicho") || tipoPoke2.getTipo().equals("Siniestro")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
 
 			} else {
 
@@ -638,15 +655,15 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Roca")){
+		}else if(tipoPoke1.getTipo().equals("Roca")){
 
-			if(this.tipo.equals("Hielo") || this.tipo.equals("Volador")){
+			if(tipoPoke2.getTipo().equals("Hielo") || tipoPoke2.getTipo().equals("Volador") || tipoPoke2.getTipo().equals("Bicho") || tipoPoke2.getTipo().equals("Fuego")){
 
-				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
 
-			} else if(this.tipo.equals("Tierra") || this.tipo.equals("Lucha") || this.tipo.equals("Acero")){
+			} else if(tipoPoke2.getTipo().equals("Agua") || tipoPoke2.getTipo().equals("Planta") || tipoPoke2.getTipo().equals("Tierra") || tipoPoke2.getTipo().equals("Lucha") || tipoPoke2.getTipo().equals("Acero")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
 
 			} else {
 
@@ -654,15 +671,15 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Tierra")){
+		}else if(tipoPoke1.getTipo().equals("Tierra")){
 
-			if(this.tipo.equals("Eléctrico") || this.tipo.equals("Roca") || this.tipo.equals("Acero")){
+			if(tipoPoke2.getTipo().equals("Eléctrico") || tipoPoke2.getTipo().equals("Roca") || tipoPoke2.getTipo().equals("Acero") || tipoPoke2.getTipo().equals("Fuego") || tipoPoke2.getTipo().equals("Veneno")){
 
-				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
 
-			} else if(this.tipo.equals("Hielo")){
+			} else if(tipoPoke2.getTipo().equals("Hielo") || tipoPoke2.getTipo().equals("Agua") || tipoPoke2.getTipo().equals("Planat")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
 
 			} else {
 
@@ -670,21 +687,149 @@ public class Pokemon{
 
 			}//Fin if quién gana
 
-		}else if(this.getTipo().equals("Volador")){
+		}else if(tipoPoke1.getTipo().equals("Volador")){
 
-			if(this.tipo.equals("Lucha")){
+			if(tipoPoke2.getTipo().equals("Lucha") || tipoPoke2.getTipo().equals("Bicho") || tipoPoke2.getTipo().equals("Planta")){
 
-				System.out.println(tipoOtroPoke + " es vulnerable ante " + foundPoke);
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
 
-			} else if(this.tipo.equals("Hielo") || this.tipo.equals("Eléctrico") || this.tipo.equals("Roca")){
+			} else if(tipoPoke2.getTipo().equals("Hielo") || tipoPoke2.getTipo().equals("Eléctrico") || tipoPoke2.getTipo().equals("Roca")){
 
-				System.out.println(foundPoke + " es vulnerable ante " + tipoOtroPoke);
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
 
 			} else {
 
 				System.out.println("Gusto en conocerte. A ver, vuela");
 
 			}//Fin if quién gana	
+
+		}else if(tipoPoke1.getTipo().equals("Agua")){
+
+			if(tipoPoke2.getTipo().equals("Roca") || tipoPoke2.getTipo().equals("Tierra") || tipoPoke2.getTipo().equals("Hada")){
+
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
+
+			} else if(tipoPoke2.getTipo().equals("Planta") || tipoPoke2.getTipo().equals("Eléctrico") || tipoPoke2.getTipo().equals("Roca")){
+
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
+
+			} else {
+
+				System.out.println("Gusto en conocerte. A ver, vuela");
+
+			}//Fin if quién gana	
+
+		}else if(tipoPoke1.getTipo().equals("Hielo")){
+
+			if(tipoPoke2.getTipo().equals("Volador") || tipoPoke2.getTipo().equals("Planta") || tipoPoke2.getTipo().equals("Tierra") || tipoPoke2.getTipo().equals("Dragón")){
+
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
+
+			} else if(tipoPoke2.getTipo().equals("Roca") || tipoPoke2.getTipo().equals("Fuego") || tipoPoke2.getTipo().equals("Lucha") || tipoPoke2.getTipo().equals("Acero")){
+
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
+
+			} else {
+
+				System.out.println("Gusto en conocerte. A ver, vuela");
+
+			}//Fin if quién gana
+
+		}else if(tipoPoke1.getTipo().equals("Planta")){
+
+			if(tipoPoke2.getTipo().equals("Agua") || tipoPoke2.getTipo().equals("Roca") || tipoPoke2.getTipo().equals("Tierra")){
+
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
+
+			} else if(tipoPoke2.getTipo().equals("Hielo") || tipoPoke2.getTipo().equals("Volador") || tipoPoke2.getTipo().equals("Bicho") || tipoPoke2.getTipo().equals("Veneno")){
+
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
+
+			} else {
+
+				System.out.println("Gusto en conocerte. A ver, vuela");
+
+			}//Fin if quién gana
+
+		}else if(tipoPoke1.getTipo().equals("Bicho")){
+
+			if(tipoPoke2.getTipo().equals("Planta") || tipoPoke2.getTipo().equals("Psíquico") || tipoPoke2.getTipo().equals("Siniestro")){
+
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
+
+			} else if(tipoPoke2.getTipo().equals("Volador") || tipoPoke2.getTipo().equals("Roca") || tipoPoke2.getTipo().equals("Fuego")){
+
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
+
+			} else {
+
+				System.out.println("Gusto en conocerte. A ver, vuela");
+
+			}//Fin if quién gana
+
+		}else if(tipoPoke1.getTipo().equals("Fuego")){
+
+			if(tipoPoke2.getTipo().equals("Hielo") || tipoPoke2.getTipo().equals("Planta") || tipoPoke2.getTipo().equals("Bicho") || tipoPoke2.getTipo().equals("Acero")){
+
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
+
+			} else if(tipoPoke2.getTipo().equals("Agua") || tipoPoke2.getTipo().equals("Roca") || tipoPoke2.getTipo().equals("Tierra")){
+
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
+
+			} else {
+
+				System.out.println("Gusto en conocerte. A ver, vuela");
+
+			}//Fin if quién gana
+
+		}else if(tipoPoke1.getTipo().equals("Hada")){
+
+			if(tipoPoke2.getTipo().equals("Lucha") || tipoPoke2.getTipo().equals("Dragón") || tipoPoke2.getTipo().equals("Siniestro")){
+
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
+
+			} else if(tipoPoke2.getTipo().equals("Veneno") || tipoPoke2.getTipo().equals("Acero")){
+
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
+
+			} else {
+
+				System.out.println("Gusto en conocerte. A ver, vuela");
+
+			}//Fin if quién gana
+
+		}else if(tipoPoke1.getTipo().equals("Veneno")){
+
+			if(tipoPoke2.getTipo().equals("Planta") || tipoPoke2.getTipo().equals("Hada")){
+
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
+
+			} else if(tipoPoke2.getTipo().equals("Tierra") || tipoPoke2.getTipo().equals("Psíquico")){
+
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
+
+			} else {
+
+				System.out.println("Gusto en conocerte.");
+
+			}//Fin if quién gana
+
+		} else if(tipoPoke1.getTipo().equals("Siniestro")){
+
+			if(tipoPoke2.getTipo().equals("Psíquico") || tipoPoke2.getTipo().equals("Fantasma")){
+
+				System.out.println(tipoPoke1.getNombre() + " es vulnerable ante " + tipoPoke2.getNombre());
+
+			} else if(tipoPoke2.getTipo().equals("Planta") || tipoPoke2.getTipo().equals("Lucha") || tipoPoke2.getTipo().equals("Hada")){
+
+				System.out.println(tipoPoke2.getNombre() + " es vulnerable ante " + tipoPoke1.getNombre());
+
+			} else {
+
+				System.out.println("Gusto en conocerte. A ver, vuela");
+
+			}//Fin if quién gana
 
 		}//Fin if comparar bn
 
