@@ -414,7 +414,7 @@ class UsoPokemon{
 
 			} else {
 
-				whichPokeIsIt = "dotteler";
+				whichPokeIsIt = "dottler";
 
 			}//Fin if whichPoke
 
@@ -537,9 +537,122 @@ class UsoPokemon{
 		//System.out.println("\n¡Mira! Nos hemos encontrado a otro pokemón");
 		//System.out.println("Preguntémosle su nombre... Es " + whichPokeIsIt);
 		//System.out.print(whichPokeIsIt);
-		return tipoPokemonDos;
+		return whichPokeIsIt;
 
 	}//Fin método pokemonEncontrado
+
+	public static String escogeTipo(String pokemonEncontrado){
+
+		String tipo = "";
+
+		if(pokemonEncontrado.equals("aaron") || pokemonEncontrado.equals("jirachi") ||
+		pokemonEncontrado.equals("cufant") || pokemonEncontrado.equals("meltan") ||
+		pokemonEncontrado.equals("klink")){
+
+			tipo = "Acero";
+
+		} else if(pokemonEncontrado.equals("dragonite") || pokemonEncontrado.equals("latios") ||
+		pokemonEncontrado.equals("axew") || pokemonEncontrado.equals("dreepy") ||
+		pokemonEncontrado.equals("goomy")){
+
+			tipo = "Dragón";
+
+		} else if(pokemonEncontrado.equals("pikachu") || pokemonEncontrado.equals("raichu") ||
+		pokemonEncontrado.equals("voltorb") || pokemonEncontrado.equals("emolga") ||
+		pokemonEncontrado.equals("rotom")){
+
+			tipo = "Eléctrico";
+
+		}else if(pokemonEncontrado.equals("gastly") || pokemonEncontrado.equals("drifloon") ||
+		pokemonEncontrado.equals("yamask") || pokemonEncontrado.equals("chandelure") ||
+		pokemonEncontrado.equals("sandygast")){
+
+			tipo = "Fantasma";
+
+		}else if(pokemonEncontrado.equals("machamp") || pokemonEncontrado.equals("pancham") ||
+		pokemonEncontrado.equals("mankey") || pokemonEncontrado.equals("clobbopus") ||
+		pokemonEncontrado.equals("falinks")){
+
+			tipo = "Lucha";
+
+		}else if(pokemonEncontrado.equals("pidgey") || pokemonEncontrado.equals("jigglypuff") ||
+		pokemonEncontrado.equals("ditto") || pokemonEncontrado.equals("girafarig") ||
+		pokemonEncontrado.equals("kecleon")){
+
+			tipo = "Normal";
+
+		}else if(pokemonEncontrado.equals("mew") || pokemonEncontrado.equals("wobbuffet") ||
+		pokemonEncontrado.equals("uxie") || pokemonEncontrado.equals("abra") ||
+		pokemonEncontrado.equals("solosis")){
+
+			tipo = "Psíquico";
+
+		}else if(pokemonEncontrado.equals("golem") || pokemonEncontrado.equals("onix") ||
+		pokemonEncontrado.equals("pupitar") || pokemonEncontrado.equals("lunatone") ||
+		pokemonEncontrado.equals("lileep")){
+
+			tipo = "Roca";
+
+		}else if(pokemonEncontrado.equals("diglett") || pokemonEncontrado.equals("cubone") ||
+		pokemonEncontrado.equals("trapinch") || pokemonEncontrado.equals("mudbray") ||
+		pokemonEncontrado.equals("gliscor")){
+
+			tipo = "Tierra";
+
+		}else if(pokemonEncontrado.equals("tornadus") || pokemonEncontrado.equals("noibat") ||
+		pokemonEncontrado.equals("cramorant") || pokemonEncontrado.equals("rookidee")){
+
+			tipo = "Volador";
+
+		}else if(pokemonEncontrado.equals("squirtle") || pokemonEncontrado.equals("psyduck") ||
+		pokemonEncontrado.equals("poliwrath") || pokemonEncontrado.equals("seel") || pokemonEncontrado.equals("magikarp")){
+
+			tipo = "Agua";
+
+		}else if(pokemonEncontrado.equals("snom") || pokemonEncontrado.equals("cetitan") ||
+		pokemonEncontrado.equals("glalie") || pokemonEncontrado.equals("jynx") || pokemonEncontrado.equals("bergmite")){
+
+			tipo = "Hielo";
+
+		}else if(pokemonEncontrado.equals("bellsprout") || pokemonEncontrado.equals("oddish") ||
+		pokemonEncontrado.equals("gloom") || pokemonEncontrado.equals("cherrim") || pokemonEncontrado.equals("rillaboom")){
+
+			tipo = "Planta";
+
+		}else if(pokemonEncontrado.equals("paras") || pokemonEncontrado.equals("caterpie") ||
+		pokemonEncontrado.equals("venemoth") || pokemonEncontrado.equals("shelmet") || pokemonEncontrado.equals("dottler")){
+
+			tipo = "Bicho";
+
+		}else if(pokemonEncontrado.equals("charmander") || pokemonEncontrado.equals("vulpix") ||
+		pokemonEncontrado.equals("torchic") || pokemonEncontrado.equals("numel") || pokemonEncontrado.equals("tepig")){
+
+			tipo = "Fuego";;
+
+		}else if(pokemonEncontrado.equals("fodough") || pokemonEncontrado.equals("clefairy") ||
+		pokemonEncontrado.equals("togepi") || pokemonEncontrado.equals("floette") || pokemonEncontrado.equals("spritzee")){
+
+			tipo = "Hada";
+
+		}else if(pokemonEncontrado.equals("ekans") || pokemonEncontrado.equals("arbok") ||
+		pokemonEncontrado.equals("zubat") || pokemonEncontrado.equals("grimer") || pokemonEncontrado.equals("gulpin")){
+
+			tipo = "Veneno";
+
+		}else if(pokemonEncontrado.equals("murkrow") || pokemonEncontrado.equals("absol") ||
+		pokemonEncontrado.equals("vullaby") || pokemonEncontrado.equals("deino") || pokemonEncontrado.equals("inkay")){
+
+			tipo = "Siniestro";
+
+		} else {
+
+			tipo = " ";
+
+		}//Fin if qué pokemón
+
+		return tipo;
+
+	}//Fin método escogeTipo
 
 	/*
 	public static void quienPoke(String pokemonComparacion){
@@ -676,27 +789,32 @@ class UsoPokemon{
 
 		case 14:
 
-			System.out.println("Paras, Caterpie, Venemoth, Shelmet, Dotteler");
+			System.out.println("Paras, Caterpie, Venemoth, Shelmet, Dottler");
+
 			break;
 
 		case 15:
 
 			System.out.println("Charmander, Vulpix, Torchic, Numel, Tepig");
+
 			break;
 
 		case 16:
 
 			System.out.println("Fodough, Clefairy, Togepi, Floette, Spritzee");
+
 			break;
 
 		case 17:
 
 			System.out.println("Ekans, Arbok, Zubat, Grimer, Gulpin");
+
 			break;
 
 		case 18:
 
 			System.out.println("Murkrow, Absol, Vullaby, Deino, Inkay");
+
 			break;
 
 		default:
@@ -725,133 +843,20 @@ class UsoPokemon{
 
 		String quePoke = entrada.next().toLowerCase();
 
-		String tipo = "";
-		boolean loHizoBn;
+		boolean loHizoBn = false;
 
-		if(quePoke.equals("aaron") || quePoke.equals("jirachi") ||
-		quePoke.equals("cufant") || quePoke.equals("meltan") ||
-		quePoke.equals("klink")){
+		String tipo = escogeTipo(quePoke);
 
-			tipo = "Acero";
-			loHizoBn = true;
+		if(!(tipo.equals(" "))){
 
-		} else if(quePoke.equals("dragonite") || quePoke.equals("latios") ||
-		quePoke.equals("axew") || quePoke.equals("dreepy") ||
-		quePoke.equals("goomy")){
-
-			tipo = "Dragón";
-			loHizoBn = true;
-
-		} else if(quePoke.equals("pikachu") || quePoke.equals("raichu") ||
-		quePoke.equals("voltorb") || quePoke.equals("emolga") ||
-		quePoke.equals("rotom")){
-
-			tipo = "Eléctrico";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("gastly") || quePoke.equals("drifloon") ||
-		quePoke.equals("yamask") || quePoke.equals("chandelure") ||
-		quePoke.equals("sandygast")){
-
-			tipo = "Fantasma";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("machamp") || quePoke.equals("pancham") ||
-		quePoke.equals("mankey") || quePoke.equals("clobbopus") ||
-		quePoke.equals("falinks")){
-
-			tipo = "Lucha";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("pidgey") || quePoke.equals("jigglypuff") ||
-		quePoke.equals("ditto") || quePoke.equals("girafarig") ||
-		quePoke.equals("kecleon")){
-
-			tipo = "Normal";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("mew") || quePoke.equals("wobbuffet") ||
-		quePoke.equals("uxie") || quePoke.equals("abra") ||
-		quePoke.equals("solosis")){
-
-			tipo = "Psíquico";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("golem") || quePoke.equals("onix") ||
-		quePoke.equals("pupitar") || quePoke.equals("lunatone") ||
-		quePoke.equals("lileep")){
-
-			tipo = "Roca";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("diglett") || quePoke.equals("cubone") ||
-		quePoke.equals("trapinch") || quePoke.equals("mudbray") ||
-		quePoke.equals("gliscor")){
-
-			tipo = "Tierra";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("tornadus") || quePoke.equals("noibat") ||
-		quePoke.equals("cramorant") || quePoke.equals("rookidee")){
-
-			tipo = "Volador";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("squirtle") || quePoke.equals("psyduck") ||
-		quePoke.equals("poliwrath") || quePoke.equals("seel") || quePoke.equals("magikarp")){
-
-			tipo = "Agua";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("snom") || quePoke.equals("cetitan") ||
-		quePoke.equals("glalie") || quePoke.equals("jynx") || quePoke.equals("bergmite")){
-
-			tipo = "Hielo";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("bellsprout") || quePoke.equals("oddish") ||
-		quePoke.equals("gloom") || quePoke.equals("cherrim") || quePoke.equals("rillaboom")){
-
-			tipo = "Planta";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("paras") || quePoke.equals("caterpie") ||
-		quePoke.equals("venomoth") || quePoke.equals("shelmet") || quePoke.equals("dottler")){
-
-			tipo = "Bicho";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("charmander") || quePoke.equals("vulpix") ||
-		quePoke.equals("torchic") || quePoke.equals("numel") || quePoke.equals("tepig")){
-
-			tipo = "Fuego";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("fodough") || quePoke.equals("clefairy") ||
-		quePoke.equals("togepi") || quePoke.equals("floette") || quePoke.equals("spritzee")){
-
-			tipo = "Hada";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("ekans") || quePoke.equals("arbok") ||
-		quePoke.equals("zubat") || quePoke.equals("grimer") || quePoke.equals("gulpin")){
-
-			tipo = "Veneno";
-			loHizoBn = true;
-
-		}else if(quePoke.equals("murkrow") || quePoke.equals("absol") ||
-		quePoke.equals("vullaby") || quePoke.equals("deino") || quePoke.equals("inkay")){
-
-			tipo = "Siniestro";
 			loHizoBn = true;
 
 		} else {
 
 			System.out.println();
 			System.out.println(quePoke + " no coincide con ninguna opción");
-			loHizoBn = false;
 
-		}//Fin if qué pokemón
+		}//Fin if checa si existe el poke
 
 		int opcion;
 
@@ -860,11 +865,9 @@ class UsoPokemon{
 		System.out.println();
 		Pokemon pokemoncito = new Pokemon(quePoke, tipo);
 		pokemoncito.setHP(100);
-		//int getAchePe = pokemoncito.getHP();
-
-		//System.out.println(pokeTipo);
 
 		System.out.println(pokemoncito);
+
 		System.out.println("\nRecuerda que cada pokemón viene con una bolsita que contiene: ");
 		System.out.println("1 oranberry (+30 hp) y 1 Full Heal (máxima salud)");
 
@@ -891,11 +894,13 @@ class UsoPokemon{
 		System.out.println("¿Cuántas vueltas quieres dar? Para un pokemón así recomiendan " + tantasVueltas + " o más ¯|_(ツ)_|¯");
 		int vueltas = entrada.nextInt();
 
-		double medioCamino = (int) vueltas/2; 
+		double medioCamino = (int) vueltas/2;
+		boolean seguimos = true; 
 
 		if(vueltas < tantasVueltas){
 
 			System.out.println("\nSon " + tantasVueltas + " o más ._.");
+			seguimos = false;
 
 		} else {
 
@@ -904,15 +909,14 @@ class UsoPokemon{
 		}//Fin if vueltas
 
 		int casualidades;
-		String tipoPokemonDos = pokemonEncontrado();
-		Pokemon pokemoncitoDos = new Pokemon("", tipoPokemonDos);
 
-		while(vueltas >= 1){
+		if(seguimos){
+
+			while(vueltas >= 1){
 
 			vueltas--;
 
 			pokemoncito.checaHP();
-			//pokemoncito.checaHP(pokemoncito.getHP());
 			casualidades = aleatorios.nextInt(6)+1;
 
 			if(casualidades == 2){
@@ -925,11 +929,13 @@ class UsoPokemon{
 
 			} else if(casualidades == 6){
 
+				String nombrePokemonDos = pokemonEncontrado();
+				String tipoPokemonDos = escogeTipo(nombrePokemonDos);
+				Pokemon pokemoncitoDos = new Pokemon(nombrePokemonDos, tipoPokemonDos);
+
 				System.out.println("\n¡Mira! Nos hemos encontrado a otro pokemón");
-				//System.out.println("Preguntémosle su nombre... Es " + pokemonEncontrado());
-				System.out.println("Preguntémosle su nombre...");
+				System.out.println("Preguntémosle su nombre... Es " + nombrePokemonDos);
 				pokemoncito.comparaPokemones(pokemoncito, pokemoncitoDos);
-				//quienPoke(quePoke);
 
 			} else {
 
@@ -937,31 +943,13 @@ class UsoPokemon{
 
 			}//Fin if qué problemas
 
+			boolean usoBolsa = false;
+
 			if(vueltas == medioCamino){
 
 				System.out.println("\nMitad del camino, nos faltan " + vueltas + " vueltas");
 				System.out.println("¿Cómo ves, quieres usar algo de tu bolsita? [S/N]");
-				siOno = entrada.next().toUpperCase().charAt(0);
-
-					if(siOno == 'S'){
-
-						System.out.println("1.Oranberry\n2.Full Heal");
-						opcion = entrada.nextInt();
-
-						if(opcion == 1){
-
-							pokemoncito.comerOran(pokemoncito.getHP());
-							pokemoncito.setBolsitaOran(false);
-
-						} else if(opcion == 2) {
-
-							pokemoncito.fuljil();
-							System.out.println("Ya estamos, listos para para seguir:)");
-							pokemoncito.setBolsitaFullH(false);
-
-						}//Fin if qué usará
-
-					}//Fin if bolsita
+				pokemoncito.usoBolsita();
 
 				}//Fin if else mitadCamino
 
@@ -970,6 +958,8 @@ class UsoPokemon{
 			System.out.println("\nTus vueltas han acabado :v");
 
 		}//Fin if loHizoBn
+
+		}//Fin if seguimos
 
 	}//Fin main
 
