@@ -16,6 +16,532 @@ class UsoPokemon{
 
 	}//Fin contexto
 
+	public static String pokemonEncontrado(){
+
+		Random aleatorios = new Random();
+
+		//String tipoPokemonComparar;
+		String tipoPokemonDos = "";
+		String whichPokeIsIt = "";
+		int tipoPoke = aleatorios.nextInt(18)+1;
+		int whichPoke = aleatorios.nextInt(5)+1;
+
+		switch(tipoPoke){
+
+			case 1:
+
+				tipoPokemonDos = "Acero";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "aaron";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "jirachi";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "cufant";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "meltan";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "klink";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 2: 
+
+			tipoPokemonDos = "Dragón";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "dragonite";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "latios";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "axew";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "dreepy";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "goomy";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 3:
+
+			tipoPokemonDos = "Eléctrico";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "pikachu";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "raichu";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "voltorb";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "emolga";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "rotom";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 4:
+
+			tipoPokemonDos = "Fantasma";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "gastly";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "drifloon";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "yamask";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "chandelure";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "sandygast";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 5:
+
+			tipoPokemonDos = "Lucha";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "machamp";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "pancham";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "mankey";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "clobbopus";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "falinks";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 6:
+
+			tipoPokemonDos = "Normal";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "pidgey";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "jigglypuff";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "ditto";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "girafarig";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "kecleon";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 7:
+
+			tipoPokemonDos = "Psíquico";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "mew";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "wobbuffet";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "uxie";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "abra";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "solosis";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 8: 
+
+			tipoPokemonDos = "Roca";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "golem";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "onix";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "pupitar";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "lunatone";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "lileep";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 9:
+
+			tipoPokemonDos = "Tierra";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "diglett";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "cubone";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "trapinch";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "mudbray";
+
+			}else if (whichPoke == 5){
+
+				whichPokeIsIt = "gliscor";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 10:
+
+			tipoPokemonDos = "Volador";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "tornadus";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "tornadus";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "noibat";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "cramorant";
+
+			} else {
+
+				whichPokeIsIt = "rookidee";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 11:
+
+			tipoPokemonDos = "Agua";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "squirtle";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "psyduck";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "poliwrath";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "seel";
+
+			} else {
+
+				whichPokeIsIt = "magikarp";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 12:
+
+			tipoPokemonDos = "Hielo";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "snom";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "cetitan";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "glalie";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "jynx";
+
+			} else {
+
+				whichPokeIsIt = "bergmite";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 13:
+
+			tipoPokemonDos = "Planta";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "bellsprout";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "oddishgloom";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "cherrim";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "rillaboom";
+
+			} else {
+
+				whichPokeIsIt = "cherrim";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 14:
+
+			tipoPokemonDos = "Bicho";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "paras";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "caterpie";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "venemoth";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "shelmet";
+
+			} else {
+
+				whichPokeIsIt = "dotteler";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 15:
+
+			tipoPokemonDos = "Fuego";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "charmander";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "vulpix";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "torchic";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "numel";
+
+			} else {
+
+				whichPokeIsIt = "tepig";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 16:
+
+			tipoPokemonDos = "Hada";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "fodough";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "clefairy";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "togepi";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "floette";
+
+			} else {
+
+				whichPokeIsIt = "spritzee";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 17:
+
+			tipoPokemonDos = "Veneno";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "ekans";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "arbok";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "zubat";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "grimer";
+
+			} else {
+
+				whichPokeIsIt = "gulpin";
+
+			}//Fin if whichPoke
+
+			break;
+
+		case 18:
+
+			tipoPokemonDos = "Siniestro";
+
+			if(whichPoke == 1){
+
+				whichPokeIsIt = "murkrow";
+
+			} else if (whichPoke == 2){
+
+				whichPokeIsIt = "absol";
+
+			}else if (whichPoke == 3){
+
+				whichPokeIsIt = "vullaby";
+
+			}else if (whichPoke == 4){
+
+				whichPokeIsIt = "deino";
+
+			} else {
+
+				whichPokeIsIt = "inkay";
+
+			}//Fin if whichPoke
+
+			break;
+
+		}//Fin switch qué tipo de pokemón
+
+		//System.out.println("\n¡Mira! Nos hemos encontrado a otro pokemón");
+		//System.out.println("Preguntémosle su nombre... Es " + whichPokeIsIt);
+		//System.out.print(whichPokeIsIt);
+		return tipoPokemonDos;
+
+	}//Fin método pokemonEncontrado
+
+	/*
 	public static void quienPoke(String pokemonComparacion){
 
 		Pokemon pokemoncito = new Pokemon();
@@ -32,6 +558,7 @@ class UsoPokemon{
 		}//Fin if somos el mismo
 
 	}//Fin método quienPoke
+	*/	
 
 	public static void main(String[] args){
 
@@ -333,7 +860,9 @@ class UsoPokemon{
 		System.out.println();
 		Pokemon pokemoncito = new Pokemon(quePoke, tipo);
 		pokemoncito.setHP(100);
-		int getAchePe = pokemoncito.getHP();
+		//int getAchePe = pokemoncito.getHP();
+
+		//System.out.println(pokeTipo);
 
 		System.out.println(pokemoncito);
 		System.out.println("\nRecuerda que cada pokemón viene con una bolsita que contiene: ");
@@ -375,12 +904,14 @@ class UsoPokemon{
 		}//Fin if vueltas
 
 		int casualidades;
+		String tipoPokemonDos = pokemonEncontrado();
+		Pokemon pokemoncitoDos = new Pokemon("", tipoPokemonDos);
 
 		while(vueltas >= 1){
 
 			vueltas--;
 
-			pokemoncito.checaHP(pokemoncito.getHP());
+			pokemoncito.checaHP();
 			//pokemoncito.checaHP(pokemoncito.getHP());
 			casualidades = aleatorios.nextInt(6)+1;
 
@@ -394,8 +925,11 @@ class UsoPokemon{
 
 			} else if(casualidades == 6){
 
-				pokemoncito.comparaPokemones(tipo);
-				quienPoke(quePoke);
+				System.out.println("\n¡Mira! Nos hemos encontrado a otro pokemón");
+				//System.out.println("Preguntémosle su nombre... Es " + pokemonEncontrado());
+				System.out.println("Preguntémosle su nombre...");
+				pokemoncito.comparaPokemones(pokemoncito, pokemoncitoDos);
+				//quienPoke(quePoke);
 
 			} else {
 
