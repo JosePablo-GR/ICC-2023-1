@@ -6,6 +6,8 @@ public class Persona{
 		String genero;
 		String talla;
 
+		Menu menucito = new Menu();
+
 		public Persona(){}//Fin constructor x omisión
 
 		public Persona(int edad, String genero, String talla){
@@ -71,8 +73,19 @@ public class Persona{
 
 			//System.out.println(genero + " de talla " + talla + ", " + edad + " años");
 
+			//int menu = rd.nextInt(3)+1;
+			//menucito.setMenu(menu);
+			//System.out.println("Pedí el menu " + menucito.getMenu());
+
 		}//Fin método generaPersona
 
+		public void queComera(){
+
+			int menu = rd.nextInt(3)+1;
+			menucito.setMenu(menu);
+			menucito.getMenu();
+
+		}//Fin método queComera 
 
 		//Getters
 		public int getEdad(){
