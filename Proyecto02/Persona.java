@@ -6,6 +6,8 @@ public class Persona{
 		String genero;
 		String talla;
 
+		int menu;
+
 		Menu menucito = new Menu();
 
 		public Persona(){}//Fin constructor x omisión
@@ -78,14 +80,6 @@ public class Persona{
 			//System.out.println("Pedí el menu " + menucito.getMenu());
 
 		}//Fin método generaPersona
-
-		public void queComera(){
-
-			int menu = rd.nextInt(3)+1;
-			menucito.setMenu(menu);
-			menucito.getMenu();
-
-		}//Fin método queComera 
 
 		//Getters
 		public int getEdad(){
