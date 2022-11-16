@@ -8,14 +8,21 @@ public class Restaurante{
 
 		//Persona.generaPersona();
 
+		/*
 		for(int a = 1; a <= 15; a++){
 
 			personita.generaPersona();
 
-			System.out.println("************* Ticket " + a + " *************");
+			System.out.println("\n************* Ticket " + a + " *************");
 			ticketito.imprimeComprobante(personita);
 
 		}//Fin for 15 veces
+		*/
+
+		personita.generaPersona();
+
+		System.out.println("\n************* Ticket n *************");
+		ticketito.imprimeComprobante(personita);
 
 	}//Fin main
 
