@@ -2,6 +2,64 @@ public class Ticket{
 
 	Menu menucito = new Menu();
 
+	public static int adicionales(String nombreVar, boolean adicional){
+
+		int num = 100;
+
+		if(adicional == true){
+
+			switch(nombreVar){
+
+				case "cremaAdicional": //Crema para café
+
+					num = 1;
+
+					break;
+
+				case "otroCafe":
+
+					num = 2;
+
+					break;
+
+				case "otroTe":
+
+					num = 3;
+
+					break;
+
+				case "otroAtole":
+
+					num = 4;
+
+					break;
+
+				case "sandwich": //Sandwich sencillo
+
+					num = 5;
+
+					break;
+
+				case "qks": //Par de quesadillas
+
+					num = 6;
+
+					break;
+
+				case "panDulce": //Pieza de pan dulce
+
+					num = 7;
+
+					break;
+
+			}//Fin switch
+
+		}//Fin if
+
+		return num;
+
+	}//Fin método adicionales
+
 	public void imprimeComprobante(Persona persona){
 
 		String extra = "";
@@ -10,72 +68,84 @@ public class Ticket{
 		System.out.println("\n	    " + persona.getGenero() + ", " + persona.getEdad() + ", " + persona.getTalla());
 		System.out.println("-----------------------------------");
 		menucito.queMenu(persona);
-		System.out.println("\t       Menú " + menucito.getMenu());
+		System.out.println("\t       Menú " + menucito.getMenu() + ":");
 		System.out.println("\n          " + menucito.getPlatillo());
 
-		if(menucito.getAdicional() == true){
+		switch(menucito.getMenu()){
 
-			if(menucito.getMenu() == 1){
+			case 1:
 
-			extra = "con miel y granola adicional";
+				if(menucito.getAdicional()){
 
-			} else if(menucito.getMenu() == 2){
+					extra = "con miel y granola adicional";
 
-			extra = "con fruta adicional";
+				}//Fin if adicional true
 
-			} else if(menucito.getMenu() == 3){
+				System.out.println("\n\t  Fruta (papaya y sandía) " + extra);
 
-			extra = "con orden de cebollitas y nopales adicional";
+				break;
 
-		}
+			case 2:
 
-		}//Fin if adicionales en menús 
+				if(menucito.getAdicional()){
 
-		if(menucito.getMenu() == 1){
+					extra = "con fruta adicional";
 
-			System.out.println("\n\t  Fruta (papaya y sandía) " + extra);
+				}//fin if adicional true
 
-		} else if(menucito.getMenu() == 2){
+				System.out.println("\n\t  Plato de avena " + extra);
 
-			System.out.println("\n\t  Plato de avena " + extra);
+				break;
 
-		} else if(menucito.getMenu() == 3){
+			case 3: 
 
-			System.out.println("\n\t  Papas horneadas " + extra);
+				if(menucito.getAdicional()){
 
-		}//Fin if complemento
+					extra = "con orden de cebollitas y nopales adicional";
 
-		//System.out.println("\n	  Adicional");
+				}//fin if adicional true
+
+				System.out.println("\n\t  Papas horneadas " + extra);
+
+
+				break;
+
+		}//Fin switch
+
 		System.out.println("\n          " + menucito.getBebida());
 		System.out.println("\n\t  Importe: $" + menucito.getPrecio());
 		System.out.println("-----------------------------------");
-		System.out.println("\t     Adicionales:");
+		System.out.println("\t    Adicionales:");
 
-			/*
+		switch(menucito.getAux()){
 
-			if(menucito.getAdicional() == true){
+			case 1:
 
-				if(menucito.getMenu() == 1){
+				System.out.println("\t    Crema para café");
 
-					System.out.println("con miel y granola adicional");
+				break;
 
-				} else if(menucito.getMenu() == 2){
+			case 5:
 
-					System.out.println("con fruta adicional");
+				System.out.println("\t    Sandwich sencillo");
 
-				} else if(menucito.getMenu() == 3){
+				break;
 
-					System.out.println("con orden de cebollitas y nopales adicional");
+			case 6:
 
-				}//Fin if adicionales en menús 
+				System.out.println("\t    Par de quesadillas");
 
-			} else {
+				break;
 
-				System.out.println("\n\t     Ninguno");				
+			case 7:
 
-			}//Fin adicionales == true / false
+				System.out.println("\t    Pieza de pan dulce");
 
-			*/
+				break;
+
+		}//Fin switch
+
+		//System.out.println();
 
 		//System.out.println();
 		//System.out.println("\nMenús vendidos: ");
