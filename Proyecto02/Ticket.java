@@ -2,63 +2,37 @@ public class Ticket{
 
 	Menu menucito = new Menu();
 
-	public static int adicionales(String nombreVar, boolean adicional){
+	/*
+	public void contadorMenus(Persona persona){
 
-		int num = 100;
+		menucito.queMenu(persona);
 
-		if(adicional == true){
+		int contM1 = 0;
+		int contM2 = 0;
+		int contM3 = 0;
 
-			switch(nombreVar){
+		if(menucito.getMenu() == 1){
 
-				case "cremaAdicional": //Crema para café
+			contM1++;
 
-					num = 1;
+		} else if(menucito.getMenu() == 2){
 
-					break;
+			contM2++;
 
-				case "otroCafe":
+		} else if(menucito.getMenu() == 3){
 
-					num = 2;
+			contM3++;
 
-					break;
+		}//Fin if cuántos menús
 
-				case "otroTe":
+		System.out.println();
+		System.out.println("\nMenús vendidos: ");
+		System.out.println("Menú 1: " + contM1 + " personas lo pidieron");
+		System.out.println("Menú 2: " + contM2 + " personas lo pidieron");
+		System.out.println("Menú 3: " + contM3 + " personas lo pidieron");
 
-					num = 3;
-
-					break;
-
-				case "otroAtole":
-
-					num = 4;
-
-					break;
-
-				case "sandwich": //Sandwich sencillo
-
-					num = 5;
-
-					break;
-
-				case "qks": //Par de quesadillas
-
-					num = 6;
-
-					break;
-
-				case "panDulce": //Pieza de pan dulce
-
-					num = 7;
-
-					break;
-
-			}//Fin switch
-
-		}//Fin if
-
-		return num;
-
-	}//Fin método adicionales
+	}//Fin método contadorMenus
+	*/
 
 	public void imprimeComprobante(Persona persona){
 
@@ -115,7 +89,7 @@ public class Ticket{
 		System.out.println("\n          " + menucito.getBebida());
 		System.out.println("\n\t  Importe: $" + menucito.getPrecio());
 		System.out.println("-----------------------------------");
-		System.out.println("\t    Adicionales:");
+		System.out.println("\t    Adicionales:\n");
 
 		switch(menucito.getAux()){
 
@@ -125,32 +99,90 @@ public class Ticket{
 
 				break;
 
-			case 5:
-
-				System.out.println("\t    Sandwich sencillo");
-
-				break;
-
-			case 6:
-
-				System.out.println("\t    Par de quesadillas");
-
-				break;
-
-			case 7:
+			case 2:
 
 				System.out.println("\t    Pieza de pan dulce");
 
 				break;
 
+			case 3:
+
+				System.out.println("\t    Sandwich sencillo");
+
+				break;
+
+			case 4:
+
+				System.out.println("\t    Par de quesadillas");
+
+				break;
+
+			case 5:
+
+				System.out.println("\t    Sandwich sencillo");
+				System.out.println("\t    Par de quesadillas");
+
+				break;
+
+			case 6:
+
+				System.out.println("\t    Sandwich sencillo");
+				System.out.println("\t    Pieza de pan dulce");
+
+				break;
+
+			case 7:
+
+				System.out.println("\t    Sandwich sencillo");
+				System.out.println("\t    Dos piezas de pan dulce");
+
+				break;
+
+			case 8:
+
+				System.out.println("\t    Crema para café");
+				System.out.println("\t    Sandwich sencillo");
+
+				break;
+
+			case 9:
+
+				System.out.println("\t    Par de quesadillas");
+				System.out.println("\t    Pieza de pan dulce");
+
+				break;
+
+			case 10:
+
+				System.out.println("\t    Crema para café");
+				System.out.println("\t    Par de quesadillas");
+
+				break;
+
+			case 11:
+
+				System.out.println("\t    Crema para café");
+				System.out.println("\t    Pieza de pan dulce");
+
+				break;
+
+			case 12:
+
+				System.out.println("\t    Crema para café");
+				System.out.println("\t    Dos piezas de pan dulce");
+
+				break;
+
+			case 13:
+
+				System.out.println("\t    Dos piezas de pan dulce");
+
+				break;
+
+
 		}//Fin switch
 
 		//System.out.println();
-
-		//System.out.println();
-		//System.out.println("\nMenús vendidos: ");
-		//System.out.println("Menú 1: " + + " personas");
-		//System.out.println("Menú 2: " + + " personas");
 
 	}//Fin método imprime comprobante
 
