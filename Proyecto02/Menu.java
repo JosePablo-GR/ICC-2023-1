@@ -65,21 +65,36 @@ public class Menu{
 	}//Fin método probabilidades
 	*/
 
-	public String bebidaAdicional(String bebida, String tamaño){
+	public String bebidaAdicional(String bebida, String tamanio){
+
+		Random rd = new Random();
 
 		if(bebida.equalsIgnoreCase("café")){
 
 			precio += 15;
 
-			if(tamaño.equalsIgnoreCase("ch")){
+			int cremitaAdicional = rd.nextInt(2); //Crema para café
+				setPanecito(true);
+
+					if(cremitaAdicional == 0){
+
+						setCremaCafe(true);
+
+					} else {
+
+						setCremaCafe(false);
+
+					}//Fin if crema café
+
+			if(tamanio.equalsIgnoreCase("ch")){
 
 				precio = precio;
 
-			} else if(tamaño.equalsIgnoreCase("m")){
+			} else if(tamanio.equalsIgnoreCase("m")){
 
 				precio += 7;
 
-			} else if(tamaño.equalsIgnoreCase("g")){
+			} else if(tamanio.equalsIgnoreCase("g")){
 
 				precio += 12;
 
@@ -89,15 +104,15 @@ public class Menu{
 
 			precio += 10;
 
-			if(tamaño.equalsIgnoreCase("ch")){
+			if(tamanio.equalsIgnoreCase("ch")){
 
 				precio = precio;	
 
-			} else if(tamaño.equalsIgnoreCase("m")){
+			} else if(tamanio.equalsIgnoreCase("m")){
 
 				precio += 1;
 
-			} else if(tamaño.equalsIgnoreCase("g")){
+			} else if(tamanio.equalsIgnoreCase("g")){
 
 				precio += 2;
 
@@ -107,15 +122,15 @@ public class Menu{
 
 			precio += 20;
 
-			if(tamaño.equalsIgnoreCase("ch")){
+			if(tamanio.equalsIgnoreCase("ch")){
 
 				precio = precio;
 
-			} else if(tamaño.equalsIgnoreCase("m")){
+			} else if(tamanio.equalsIgnoreCase("m")){
 
 				precio += 5;
 
-			} else if(tamaño.equalsIgnoreCase("g")){
+			} else if(tamanio.equalsIgnoreCase("g")){
 
 				precio += 10;
 
@@ -123,7 +138,10 @@ public class Menu{
 
 		}//Fin if café, té o atole
 
-		return bebida + "" + tamaño;
+		//String tMayus = tamanio.toUpperCase();
+		String orden = "\t      " + bebida + " " + tamanio.toUpperCase();
+
+		return orden;
 
 	}//Fin método bebidaAdicional
 
@@ -180,9 +198,40 @@ public class Menu{
 
 				}
 
-				setBebidaExtra(bebidaAdicional(bebidaBebible, "G"));
+				String vasitoNuevo = bebidaAdicional(bebidaBebible, "G");
+
+				setBebidaExtra(vasitoNuevo);
 
 			}//Fin if 80% auxBebida
+
+		} else if(persona.getTalla().equals("XG")){
+
+			int tamanioTe = rd.nextInt(3)+1;
+			int masSandwich = rd.nextInt(10)+1;
+			int masQuesadillas = rd.nextInt(10)+1;
+
+			setMenu(3);
+			setAdicional(true);
+
+			String tt = "";
+
+			if(tamanioTe == 1){
+
+				tt = "ch"
+
+			} else if(tamanioTe == 2){
+
+				tt = "m"
+
+			} else {
+
+				tt = "g";
+
+			}
+
+			setBebidaExtra("té", tt);
+
+			if(masSandwich >= 1){}
 
 		} else {
 
@@ -393,6 +442,19 @@ public class Menu{
 
 				algoDeTomar = "Café";
 
+				cremitaAdicional = rd.nextInt(2); //Crema para café
+				setPanecito(true);
+
+					if(cremitaAdicional == 0){
+
+						setCremaCafe(true);
+
+					} else {
+
+						setCremaCafe(false);
+
+					}//Fin if crema café
+
 			} else if(algoMas == 2){
 
 				algoDeTomar = "Té";
@@ -403,23 +465,25 @@ public class Menu{
 
 			}
 
-			String tamañoAdicional = "";
+			String tamanioAdicional = "";
 
 			if(tamañito == 1){
 
-				tamañoAdicional = "Ch";
+				tamanioAdicional = "Ch";
 
 			} else if(tamañito == 2){
 
-				tamañoAdicional = "M";
+				tamanioAdicional = "M";
 
 			} else if(tamañito == 3){
 
-				tamañoAdicional = "g";
+				tamanioAdicional = "g";
 
 			}
 
-			setBebidaExtra(bebidaAdicional(algoDeTomar, tamañoAdicional));
+			String nuevoVaso = bebidaAdicional(algoDeTomar, tamanioAdicional);
+
+			setBebidaExtra(nuevoVaso);
 
 	}//Fin método queComera
 
