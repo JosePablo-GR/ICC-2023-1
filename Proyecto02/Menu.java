@@ -9,11 +9,14 @@ public class Menu{
 	String bebida;
 	boolean adicional;
 
-	boolean auxCremaCafe;
-	boolean auxPancito;
-	boolean auxSandwich;
-	boolean auxQuesadillas;
+	int auxCremaCafe;
+	int auxPancito;
+	int auxSandwich;
+	int auxQuesadillas;
 	String bebidaExtra;
+
+	boolean auxBool = false;
+	boolean banderaBoolFruta = false;
 
 	public Menu(){}//Fin constructor x omisión
 
@@ -28,43 +31,6 @@ public class Menu{
 
 	}//Fin constructor parámetros
 
-	/*
-	public void probabilidades(Persona persona){
-
-		Random rd = new Random();
-
-		int porcentajes = rd.nextInt(10)+1;
-		int desempate = rd.nextInt(2);
-
-		if(persona.getEdad() >= 5 || persona.getEdad() <= 17){
-
-			if(porcentajes >= 1  || porcentajes <= 4){
-
-				setMenu(1);
-
-			} else if(porcentajes >= 5 || porcentajes <= 9){
-
-				setMenu(2);
-
-			} else {
-
-				if(desempate == 0){
-
-					setMenu(2);
-
-				} else {
-
-					setMenu(3);
-
-				}//Fin ese 5%
-
-			}//Fin 40% de probabilidad
-
-		}//Fin if diferentes menús
-
-	}//Fin método probabilidades
-	*/
-
 	public String bebidaAdicional(String bebida, String tamanio){
 
 		Random rd = new Random();
@@ -74,15 +40,15 @@ public class Menu{
 			precio += 15;
 
 			int cremitaAdicional = rd.nextInt(2); //Crema para café
-				setPanecito(true);
+				setCantPanecito(getCantPanecito() + 1);
 
 					if(cremitaAdicional == 0){
 
-						setCremaCafe(true);
+						setCantCremaCafe(getCantCremaCafe() + 1);
 
 					} else {
 
-						setCremaCafe(false);
+						setCantCremaCafe(0);
 
 					}//Fin if crema café
 
@@ -145,19 +111,44 @@ public class Menu{
 
 	}//Fin método bebidaAdicional
 
+	public String comerComer(){
+
+		Random rd = new Random();
+
+		String alimento = "";
+		int food = rd.nextInt(3)+1;
+
+		if(food == 1){
+
+			alimento = "Sandwich";
+
+		} else if(food == 3){
+
+			alimento = "Quesadillas";
+
+		}
+
+		return alimento;
+
+	}//Fin método comerComer
+
 	public void queMenu(Persona persona){
 
 		Random rd = new Random();
 
-		if(persona.getEdad() >= 5 || persona.getEdad() <= 17){
+		boolean personaEspacial = false;
+
+		if((persona.getEdad() >= 5 && persona.getEdad() <= 17)){	//Punto ii
+
+			personaEspacial = true;
 
 			int porcentajes = rd.nextInt(10)+1;
 
-			if(porcentajes >= 1  || porcentajes <= 4){
+			if(porcentajes >= 1  && porcentajes <= 4){
 
 				setMenu(1);
 
-			} else if(porcentajes >= 5 || porcentajes <= 9){
+			} else if(porcentajes >= 5 && porcentajes <= 9){
 
 				setMenu(2);
 
@@ -180,7 +171,7 @@ public class Menu{
 			int auxBebida = rd.nextInt(10)+1;
 			int queOtraBebida = rd.nextInt(3)+1;
 
-			if(auxBebida >= 1 || auxBebida <= 8){
+			if(auxBebida >= 1 && auxBebida <= 8){
 
 				String bebidaBebible;
 
@@ -198,13 +189,17 @@ public class Menu{
 
 				}
 
-				String vasitoNuevo = bebidaAdicional(bebidaBebible, "G");
+				String vasitoNuevo = bebidaAdicional(bebidaBebible, "G");	//Punto ii
 
 				setBebidaExtra(vasitoNuevo);
 
 			}//Fin if 80% auxBebida
 
-		} else if(persona.getTalla().equals("XG")){
+		}
+
+		if((persona.getTalla().equals("XG"))){	//Punto iv
+
+			personaEspacial = true;
 
 			int tamanioTe = rd.nextInt(3)+1;
 			int masSandwich = rd.nextInt(10)+1;
@@ -217,29 +212,85 @@ public class Menu{
 
 			if(tamanioTe == 1){
 
-				tt = "ch"
+				tt = "ch";
+				auxBool = true;
 
 			} else if(tamanioTe == 2){
 
-				tt = "m"
+				tt = "m";
+				auxBool = true;
 
 			} else {
 
 				tt = "g";
+				auxBool = true;
 
 			}
 
-			setBebidaExtra("té", tt);
+			setBebidaExtra(bebidaAdicional("Té", tt));
 
-			if(masSandwich >= 1){}
+			if(masSandwich >= 1 && masSandwich <= 9){
 
-		} else {
+				setCantSandwich(getCantSandwich() + 1);
+
+			}
+
+			if(masQuesadillas >= 1 && masQuesadillas <= 7){
+
+				setCantQuesadillas(getCantQuesadillas() + 1);
+
+			}
+
+		
+		}
+
+		boolean auxPEdad = false;
+
+		if(((persona.getEdad() >= 60 && persona.getEdad() <= 99) && persona.getTalla().equalsIgnoreCase("ch"))){
+
+			personaEspacial = true;
+
+			if(persona.getGenero().equals("Hombre")){
+
+				auxPEdad = true;
+
+			}
+
+			int masProbas = rd.nextInt(10)+1;
+			int cincoPorciento = rd.nextInt(2);
+
+			if(masProbas >= 1 && masProbas <= 7){
+
+				setMenu(2);
+
+			}//Fin if porcentaje
+
+			if(cincoPorciento == 0){
+
+				setMenu(2);
+
+			}
+
+			int masMasMasProbas = rd.nextInt(10)+1;
+
+			if(masMasMasProbas >= 1 && masMasMasProbas <= 6){
+
+				banderaBoolFruta = true;
+
+
+			}
+
+		}
+
+		if(personaEspacial == false){
 
 			menu = rd.nextInt(3)+1;
 
 			setMenu(menu);
 
-		}//Fin if 5 a 17
+		}//Fin if diferentes carac, diferentes menús
+
+		//System.out.println("personaEspacial " + personaEspacial);
 
 		int cremitaAdicional;
 		boolean cremaAdicional = false; //Para menú 1 y 3
@@ -256,182 +307,209 @@ public class Menu{
 
 		}//Fin if adicional
 
-		//////////Menú 1//////////
-		if(menu == 1){
+		switch(menu){
 
-			this.precio = 60;
+			//////////Menú 1//////////
+			case 1:
 
-			String verdesRojos;
-			int rojosVerdes = rd.nextInt(2);
+				this.precio = 60;
 
-			if(rojosVerdes == 0){
+				String verdesRojos;
+				int rojosVerdes = rd.nextInt(2);
 
-				verdesRojos = "verdes";
+				if(rojosVerdes == 0){
 
-			} else {
+					verdesRojos = "verdes";
 
-				verdesRojos = "rojos";
+				} else {
 
-			}//Fin if rojos o verdes
+					verdesRojos = "rojos";
 
-			this.platillo = "Chilaquiles " + verdesRojos;
+				}//Fin if rojos o verdes
 
-			if(queBebida == 1){
+				this.platillo = "Chilaquiles " + verdesRojos;
 
-				this.bebida = "Café";
+				if(queBebida == 1){
 
-			} else {
+					this.bebida = "Café";
 
-				this.bebida = "Jugo";
+				} else {
 
-			}//Fin if bebida
+					this.bebida = "Jugo";
 
-			if(persona.getGenero().equals("Mujer")){
+				}//Fin if bebida
+
+				if(persona.getGenero().equals("Mujer")){	//Punto i
+
+					if(this.bebida.equals("Café")){
+
+					cremitaAdicional = rd.nextInt(10)+1; //Crema para café
+					//setCantPanecito(1);
+
+						if(cremitaAdicional <= 7){
+
+							setCantCremaCafe(getCantCremaCafe() + 1);
+
+						} else {
+
+							setCantCremaCafe(0);
+
+						}//Fin if crema café 70%
+
+					}//Fin if mujer pide café
+					
+				} else { //Hombre
+
+					if(this.bebida.equals("Café")){
+
+					cremitaAdicional = rd.nextInt(2); //Crema para café
+					//setCantPanecito(1);
+
+						if(cremitaAdicional == 0){
+
+							setCantCremaCafe(getCantCremaCafe() + 1);
+
+						} else {
+
+							setCantCremaCafe(0);
+
+						}//Fin if crema café
+
+					}//Fin if hombre pide café
+
+				}//Fin if género
+
+				if(getAdicional()){
+
+					precio += 5;
+
+				}//Fin if adicional (comida) == true
+
+				break;
+
+			//////////Menú 2//////////
+			case 2:
+
+				this.precio = 45;
+
+				this.platillo = "Molletes";
+
+				if(queBebida == 1){
+
+					this.bebida = "Té";
+
+				} else {
+
+					this.bebida = "Atole";
+
+				}//Fin if bebida
+
+				if(banderaBoolFruta){
+
+					setAdicional(true);
+
+				}
+
+				if(getAdicional()){
+
+					precio += 10;
+
+				}//Fin if adicional (comida) == true
+
+				break;
+
+			//////////Menú 3//////////
+			case 3:
+
+				this.precio = 70;
+
+				this.platillo = "Costilla de res";
+
+				if(queBebida == 1){
+
+					this.bebida = "Café";
+
+				} else {
+
+					this.bebida = "Jugo";
+
+				}//Fin if bebida
 
 				if(this.bebida.equals("Café")){
 
-				cremitaAdicional = rd.nextInt(10)+1; //Crema para café
-				setPanecito(true);
+					//setCantPanecito(getCantPanecito() + 1);
+					cremitaAdicional = rd.nextInt(2); //Crema para café
 
-					if(cremitaAdicional <= 7){
+						if(cremitaAdicional == 0){
 
-						setCremaCafe(true);
+							setCantCremaCafe(getCantCremaCafe() + 1);
 
-					} else {
+						} else {
 
-						setCremaCafe(false);
+							setCantCremaCafe(0);
 
-					}//Fin if crema café 70%
+						}//Fin if crema café
 
-				}//Fin if mujer pide café
-				
-			} else { //Hombre
+					}//Fin if hombre pide café
 
-				if(this.bebida.equals("Café")){
+				if(getAdicional()){
 
-				cremitaAdicional = rd.nextInt(2); //Crema para café
-				setPanecito(true);
+					precio += 15;
 
-					if(cremitaAdicional == 0){
+				}//Fin if adicional (comida) == true
 
-						setCremaCafe(true);
+				if(persona.getTalla().equalsIgnoreCase("g") && (persona.getEdad() >= 30 && persona.getEdad() <= 40)){	 //Punto vi
 
-					} else {
+					int masMasProbas = rd.nextInt(10)+1;
 
-						setCremaCafe(false);
+					if(masMasProbas >= 1 && masMasProbas <= 9){
 
-					}//Fin if crema café
+						setCantPanecito(3);
+						setCantCremaCafe(getCantCremaCafe() + 2);
 
-				}//Fin if hombre pide café
+					}//Fin if más tres panes dulces y 2 sobres de crema para café
 
-			}//Fin if género
+				}
 
-			if(getAdicional()){
+				break;
 
-				precio += 5;
+		}//Fin switch qué menús
 
-			}//Fin if adicional (comida) == true
+			boolean masComida = false;
+			int probMasComida = rd.nextInt(8)+1;
+			int cantComida = rd.nextInt(3);
+			
+			if(probMasComida % 2 == 0 && probMasComida != 2){
 
-		//////////Menú 2//////////
-		} else if(menu == 2){
+				masComida = true;
 
-			this.precio = 45;
+			}//Fin if
 
-			this.platillo = "Molletes";
+			if(masComida){
 
-			if(queBebida == 1){
+				String quecaSandwich = comerComer();
 
-				this.bebida = "Té";
+				if(quecaSandwich.equals("Sandwich")){
 
-			} else {
+					setCantSandwich(getCantSandwich() + cantComida);
 
-				this.bebida = "Atole";
+				} else if(quecaSandwich.equals("Quesadillas")){
 
-			}//Fin if bebida
+					setCantQuesadillas(getCantQuesadillas() + cantComida);
 
-			if(getAdicional()){
+				}//Fin if qué y cuánto
 
-				precio += 10;
+			}//Fin if boolean masComida
 
-			}//Fin if adicional (comida) == true
+			if(auxPEdad == true){
 
-		//////////Menú 3//////////
-		} else {
+				setCantCremaCafe(0);
+				setCantPanecito(0);
+				setCantSandwich(0);
+				setCantSandwich(0);
+				setCantQuesadillas(0);
 
-			this.precio = 70;
-
-			this.platillo = "Costilla de res";
-
-			if(queBebida == 1){
-
-				this.bebida = "Café";
-
-			} else {
-
-				this.bebida = "Jugo";
-
-			}//Fin if bebida
-
-			if(this.bebida.equals("Café")){
-
-				setPanecito(true);
-				cremitaAdicional = rd.nextInt(2); //Crema para café
-
-					if(cremitaAdicional == 0){
-
-						setCremaCafe(true);
-
-					} else {
-
-						setCremaCafe(false);
-
-					}//Fin if crema café
-
-				}//Fin if hombre pide café
-
-			if(getAdicional()){
-
-				precio += 15;
-
-			}//Fin if adicional (comida) == true
-
-		}//Fin qué menús
-
-			int masAdicional = rd.nextInt(7)+1;
-
-			if(masAdicional == 1){
-
-				//Nada
-
-			} else if(masAdicional == 2){
-
-				setSandwich(true);
-				precio += 33;
-
-			}else if(masAdicional == 3){
-
-				setQuesadillas(true);
-				precio += 20;
-
-			} else if(masAdicional == 4){
-
-				//Nada
-
-			}//Fin ifs más comida
-
-			if(getCremaCafe()){
-
-				precio += 3;
-				setCremaCafe(true);
-
-			}//Fin if adicional (café) == true
-
-			if(getPanecito()){
-
-				precio += 17;
-				setPanecito(true);
-
-			}//Fin if adicional (café) == true
+			}
 
 			int algoMas = rd.nextInt(3)+1;
 			int tamañito = rd.nextInt(3)+1;
@@ -443,15 +521,15 @@ public class Menu{
 				algoDeTomar = "Café";
 
 				cremitaAdicional = rd.nextInt(2); //Crema para café
-				setPanecito(true);
+				setCantPanecito(getCantPanecito() + 1);
 
 					if(cremitaAdicional == 0){
 
-						setCremaCafe(true);
+						setCantCremaCafe(getCantCremaCafe() + 1);
 
 					} else {
 
-						setCremaCafe(false);
+						setCantCremaCafe(0);
 
 					}//Fin if crema café
 
@@ -485,7 +563,36 @@ public class Menu{
 
 			setBebidaExtra(nuevoVaso);
 
-	}//Fin método queComera
+			if(auxBool){
+
+				setBebidaExtra(bebidaAdicional("Té", tamanioAdicional));
+
+			}
+
+			if(getCantPanecito() >= 5){
+
+				setCantPanecito(5);
+
+			}
+
+			int cuantoCremaCafe = 3 * getCantCremaCafe();
+			int cuantoPan = 17 * getCantPanecito();
+			int cuantoSanwich = 33 * getCantSandwich();
+			int cuantoQuecas = 20 * getCantQuesadillas();
+
+			precio = precio + cuantoCremaCafe + cuantoPan + cuantoSanwich + cuantoQuecas;
+
+		//System.out.println("getCantCremaCafe " + getCantCremaCafe());
+		//System.out.println("cuantoCremaCafe" + cuantoCremaCafe);
+		//System.out.println("getCantPanecito " + getCantPanecito());
+		//System.out.println("cuantoPan" + cuantoPan);
+		//System.out.println("getCantSandwich " + getCantSandwich());
+		//System.out.println("cuantoSanwich" + cuantoSanwich);
+		//System.out.println("getCantQuesadillas " + getCantQuesadillas());
+		//System.out.println("cuantoQuecas" + cuantoQuecas);
+		//System.out.println();
+
+	}//Fin método queMenu
 
 	//Setters
 	public void setMenu(int menu){
@@ -506,29 +613,29 @@ public class Menu{
 
 	}//Fin setPrecio
 
-	public void setCremaCafe(boolean auxCremaCafe){
+	public void setCantCremaCafe(int auxCremaCafe){
 
 		this.auxCremaCafe = auxCremaCafe;
 
-	}//Fin setCremaCafe
+	}//Fin setCantCremaCafe
 
-	public void setPanecito(boolean auxPancito){
+	public void setCantPanecito(int auxPancito){
 
 		this.auxPancito = auxPancito;
 
-	}//Fin setPanecito
+	}//Fin setCantPanecito
 
-	public void setSandwich(boolean auxSandwich){
+	public void setCantSandwich(int auxSandwich){
 
 		this.auxSandwich = auxSandwich;
 
-	}//Fin setSandwich
+	}//Fin setCantSandwich
 
-	public void setQuesadillas(boolean auxQuesadillas){
+	public void setCantQuesadillas(int auxQuesadillas){
 
 		this.auxQuesadillas = auxQuesadillas;
 
-	}//Fin setQuesadillas
+	}//Fin setCantQuesadillas
 
 	public void setBebidaExtra(String bebidaExtra){
 
@@ -545,7 +652,7 @@ public class Menu{
 
 	public int getPrecio(){
 
-	return precio;
+		return precio;
 
 	}//Fin getPrecio
 
@@ -573,29 +680,29 @@ public class Menu{
 
 	}//Fin getAdicional
 
-	public boolean getCremaCafe(){
+	public int getCantCremaCafe(){
 
 		return auxCremaCafe;
 
-	}//Fin getCremaCafe
+	}//Fin getCantCremaCafe
 
-	public boolean getPanecito(){
+	public int getCantPanecito(){
 
 		return auxPancito;
 
-	}//Fin getPanecito
+	}//Fin getCantPanecito
 
-	public boolean getSandwich(){
+	public int getCantSandwich(){
 
 		return auxSandwich;
 
-	}//Fin get getSandwich
+	}//Fin get getCantSandwich
 
-	public boolean getQuesadillas(){
+	public int getCantQuesadillas(){
 
 		return auxQuesadillas;
 
-	}//Fin getQuesadillas
+	}//Fin getCantQuesadillas
 
 	public String getBebidaExtra(){
 
